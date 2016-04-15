@@ -10,6 +10,7 @@ public class Category {
 	@GeneratedValue
 	private int categoryId;
 	private String name;
+	
 	public int getCategoryId() {
 		return categoryId;
 	}

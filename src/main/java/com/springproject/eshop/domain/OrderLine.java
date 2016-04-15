@@ -3,14 +3,16 @@ package com.springproject.eshop.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class OrderLine {
 
 	@Id @GeneratedValue
-	private long id;
+	private int id;
 	private double unitPrice;
 	private int quantity;
 	private double subTotal;
@@ -20,10 +22,10 @@ public class OrderLine {
 	private Order order;
 	
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public double getUnitPrice() {

@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 public class Order {
 
 	@Id @GeneratedValue
-	private long orderId;
+	private int orderId;
 	@Temporal(TemporalType.DATE)
 	private Date orderDate;
 	private int totalQty;
@@ -29,10 +29,10 @@ public class Order {
 	@OneToMany(mappedBy="order")
 	private OrderLine orderLines;
 	
-	public long getOrderId() {
+	public int getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(long orderId) {
+	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
 	public Date getOrderDate() {
