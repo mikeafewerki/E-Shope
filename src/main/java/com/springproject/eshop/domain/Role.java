@@ -1,4 +1,4 @@
-package com.springproject.eshop.model;
+package com.springproject.eshop.domain;
 
 public enum Role {
 

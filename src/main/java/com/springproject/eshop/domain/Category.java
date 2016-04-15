@@ -1,4 +1,4 @@
-package com.springproject.eshop.model;
+package com.springproject.eshop.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

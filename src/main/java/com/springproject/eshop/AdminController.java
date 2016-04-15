@@ -15,7 +15,7 @@ public class AdminController {
 	@RequestMapping(value = "/adminHome", method = RequestMethod.GET)
 	public String adminHome(Model model) {
 		
-		
-		return "admin/adminHome";
+		model.addAttribute("page","adminHome.jsp");
+		return "admin/index";
 	}
 }
