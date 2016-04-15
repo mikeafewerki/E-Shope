@@ -13,7 +13,7 @@ import javax.persistence.InheritanceType;
 public abstract class Person {
 
 	@Id @GeneratedValue
-	private long id;
+	private int id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -21,11 +21,11 @@ public abstract class Person {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -12,7 +12,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class OrderLine {
 
 	@Id @GeneratedValue
-	private long id;
+	private int id;
 	private double unitPrice;
 	private int quantity;
 	private double subTotal;
@@ -22,10 +22,10 @@ public class OrderLine {
 	private Order order;
 	
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public double getUnitPrice() {
