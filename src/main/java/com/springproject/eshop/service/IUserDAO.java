@@ -6,6 +6,8 @@ import com.springproject.eshop.domain.User;
 
 
 public interface IUserDAO {
+	
+	
 	public abstract List<User> getAll();
 
 	public abstract void add(User user);
