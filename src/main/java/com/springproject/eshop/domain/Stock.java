@@ -1,43 +1,34 @@
-package com.springproject.eshop.model;
+package com.springproject.eshop.domain;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-public class Image {
+public class Stock {
 	@Id
 	@GeneratedValue
-	private int imageId;
-	private String url;
-	
+	private int stockId;
+	private int qty;
 	@ManyToOne
 	@JoinColumn(name="productId")
 	private int productId;
-
-	public int getImageId() {
-		return imageId;
+	public int getStockId() {
+		return stockId;
 	}
-
-	public void setImageId(int imageId) {
-		this.imageId = imageId;
+	public void setStockId(int stockId) {
+		this.stockId = stockId;
 	}
-
-	public String getUrl() {
-		return url;
+	public int getQty() {
+		return qty;
 	}
-
-	public void setUrl(String url) {
-		this.url = url;
+	public void setQty(int qty) {
+		this.qty = qty;
 	}
-
 	public int getProductId() {
 		return productId;
 	}
-
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	
-	
 }

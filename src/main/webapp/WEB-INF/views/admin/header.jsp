@@ -47,6 +47,33 @@
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        
+<!-- -------------------JAVASCRIPTS----------- -->
+<spring:url value="/resources/js/bootstrap.min.js" var="bootstrapJS" />
+<script src="${bootstrapJS}"></script>
+
+<!-- gauge js -->
+<%-- <spring:url value="/resources/js/gauge/gauge.min.js" var="gauzeJS" /> --%>
+<%-- <spring:url value="/resources/js/gauge/gauge_demo.js" var="gauzeDemo" /> --%>
+<%-- <script src="${gauzeJS}"></script> --%>
+<%-- <script src="${gauzeDemo}"></script> --%>
+<!-- bootstrap progress js -->
+<spring:url value="/resources/js/progressbar/bootstrap-progressbar.min.js" var="bootstrapProgress" />
+<script src="${bootstrapProgress}"></script>
+<!-- icheck -->
+<spring:url value="/resources/js/icheck/icheck.min.js" var="icheck" />
+<script src="${icheck}"></script>
+<!-- daterangepicker -->
+<spring:url value="/resources/js/moment/moment.min.js" var="momentJS" />
+<spring:url value="/resources/js/datepicker/daterangepicker.js" var="daterange" />
+<script type="text/javascript" src="${momentJS}"></script>
+<script type="text/javascript" src="${daterange }"></script>
+<!-- chart js -->
+<spring:url value="/resources/js/chartjs/chart.min.js" var="chart" />
+<script src="${chart}"></script>
+<spring:url value="/resources/js/custom.js" var="customjs" />
+<script src="${customjs }"></script>        
+ <c:set var="context" value="${pageContext.request.contextPath}" />       
 </head>
 
 <body class="nav-md">
