@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 public class Product {
@@ -23,7 +24,8 @@ public class Product {
 	
 	@OneToMany(mappedBy="stockId")
 	private int stockId;
-	@OneToMany(mappedBy="categoryId")
+	@ManyToOne
+	@JoinColumn(name="categoryId")
 	private int catId;
 	public int getProductId() {
 		return productId;
