@@ -1,7 +1,6 @@
 package com.springproject.eshop.model;
 
-public enum Status {
+public class CategoryDAO {
 
-	PENDING,
-	COMPLETED
+	
 }
