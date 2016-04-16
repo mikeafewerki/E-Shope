@@ -32,8 +32,8 @@
 					<li><a><i class="fa fa-leaf"></i>Categories <span
 							class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="admin/category">All Categories</a></li>
-							<li><a href="admin/addCategory">Add Category</a></li>
+							<li><a href="${context}/eshop/admin/category">All Categories</a></li>
+							<li><a href="${context }/eshop/admin/addCategory">Add Category</a></li>
 
 						</ul></li>
 
