@@ -1,10 +1,13 @@
 package com.springproject.eshop.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -12,28 +15,23 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class OrderLine {
 
 	@Id @GeneratedValue
-	private int id;
-	private double unitPrice;
+	private long id;
 	private int quantity;
 	private double subTotal;
-	@OneToOne
-	private Product product;
+	@OneToMany
+	//@JoinColumn(name="productId")
+	private List<Product> products;
 	@ManyToOne
 	private Order order;
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
-	public double getUnitPrice() {
-		return unitPrice;
-	}
-	public void setUnitPrice(double unitPrice) {
-		this.unitPrice = unitPrice;
-	}
+	
 	public int getQuantity() {
 		return quantity;
 	}
@@ -46,11 +44,12 @@ public class OrderLine {
 	public void setSubTotal(double subTotal) {
 		this.subTotal = subTotal;
 	}
-	public Product getProduct() {
-		return product;
+	
+	public List<Product> getProducts() {
+		return products;
 	}
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 	public Order getOrder() {
 		return order;
