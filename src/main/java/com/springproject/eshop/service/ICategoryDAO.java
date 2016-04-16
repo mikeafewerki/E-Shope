@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.springproject.eshop.domain.Category;
 
-public interface CategoryService {
+public interface ICategoryDAO {
 
 	public List<Category> findAll();
 }

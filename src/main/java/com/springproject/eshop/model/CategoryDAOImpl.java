@@ -9,11 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springproject.eshop.domain.Category;
 import com.springproject.eshop.repository.CategoryRepository;
-import com.springproject.eshop.service.CategoryService;
+import com.springproject.eshop.service.ICategoryDAO;
 
 @Service
 @Transactional(readOnly = true)
-public class CategoryDAO implements CategoryService{
+public class CategoryDAOImpl implements ICategoryDAO{
 
 	@Inject
 	private CategoryRepository repository;

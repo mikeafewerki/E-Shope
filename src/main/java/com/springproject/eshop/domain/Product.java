@@ -3,34 +3,54 @@ package com.springproject.eshop.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Product {
 	@Id
 	@GeneratedValue
-	private int productId;
+	private long productId;
 	private String name;
 	private String description;
 	private double price;
 	private int currQty;
 	
-	@OneToMany
-	@JoinColumn(name="imageId")
-	private List<Image> images = new ArrayList<Image>();
+//	@OneToMany
+//	@JoinColumn(name="imageId")
+//	private List<Image> images = new ArrayList<Image>();
 	
-	@OneToMany(mappedBy="stockId")
-	private int stockId;
+	@OneToMany(mappedBy="product")
+	//private int stockId;
+	private List<Stock> stock;
+	
 	@ManyToOne
 	@JoinColumn(name="categoryId")
-	private int catId;
-	public int getProductId() {
+	//private int catId;
+	private Category category;
+	
+	
+	
+	public List<Stock> getStock() {
+		return stock;
+	}
+	public void setStock(List<Stock> stock) {
+		this.stock = stock;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public long getProductId() {
 		return productId;
 	}
-	public void setProductId(int productId) {
+	public void setProductId(long productId) {
 		this.productId = productId;
 	}
 	public String getName() {
@@ -57,24 +77,24 @@ public class Product {
 	public void setCurrQty(int currQty) {
 		this.currQty = currQty;
 	}
-	public List<Image> getImages() {
-		return images;
-	}
-	public void setImages(List<Image> images) {
-		this.images = images;
-	}
-	public int getStockId() {
-		return stockId;
-	}
-	public void setStockId(int stockId) {
-		this.stockId = stockId;
-	}
-	public int getCatId() {
-		return catId;
-	}
-	public void setCatId(int catId) {
-		this.catId = catId;
-	}
+//	public List<Image> getImages() {
+//		return images;
+//	}
+//	public void setImages(List<Image> images) {
+//		this.images = images;
+//	}
+//	public int getStockId() {
+//		return stockId;
+//	}
+//	public void setStockId(int stockId) {
+//		this.stockId = stockId;
+//	}
+//	public int getCatId() {
+//		return catId;
+//	}
+//	public void setCatId(int catId) {
+//		this.catId = catId;
+//	}
 	
 	
 }

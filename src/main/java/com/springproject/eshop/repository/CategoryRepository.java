@@ -10,7 +10,7 @@ import com.springproject.eshop.domain.Category;
 
 @Component
 @Transactional(readOnly = true) 
-public interface CategoryRepository extends CrudRepository<Category, Integer>{
+public interface CategoryRepository extends CrudRepository<Category, Long>{
 
 	List<Category> findByName(String name);
 }
