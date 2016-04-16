@@ -10,6 +10,6 @@ import com.springproject.eshop.domain.Image;
 
 @Component
 @Transactional(readOnly = true) 
-public interface ImageRepository extends CrudRepository<Image, Integer> {
-	List<Image> findByUrl(String url);
+public interface ImageRepository extends CrudRepository<Image, Long> {
+//	List<Image> findByUrl(String url);
 }

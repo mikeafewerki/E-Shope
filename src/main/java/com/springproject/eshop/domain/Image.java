@@ -1,18 +1,19 @@
 package com.springproject.eshop.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+@Entity
 public class Image {
 
 	@Id
 	@GeneratedValue
-	private int imageId;
+	private long imageId;
 	private String url;
-	public int getImageId() {
+	public long getImageId() {
 		return imageId;
 	}
-	public void setImageId(int imageId) {
+	public void setImageId(long imageId) {
 		this.imageId = imageId;
 	}
 	public String getUrl() {

@@ -10,6 +10,6 @@ import com.springproject.eshop.domain.Stock;
 
 @Component
 @Transactional(readOnly = true) 
-public interface StockRepository extends CrudRepository<Stock, Integer>  {
-	List<Stock> findByProductId(int prodId);
+public interface StockRepository extends CrudRepository<Stock, Long>  {
+	//List<Stock> findByStockId(Long stockId);
 }
