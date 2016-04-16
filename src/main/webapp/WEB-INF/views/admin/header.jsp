@@ -47,7 +47,7 @@
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        
+
 <!-- -------------------JAVASCRIPTS----------- -->
 <spring:url value="/resources/js/bootstrap.min.js" var="bootstrapJS" />
 <script src="${bootstrapJS}"></script>
@@ -58,22 +58,45 @@
 <%-- <script src="${gauzeJS}"></script> --%>
 <%-- <script src="${gauzeDemo}"></script> --%>
 <!-- bootstrap progress js -->
-<spring:url value="/resources/js/progressbar/bootstrap-progressbar.min.js" var="bootstrapProgress" />
+<spring:url
+	value="/resources/js/progressbar/bootstrap-progressbar.min.js"
+	var="bootstrapProgress" />
 <script src="${bootstrapProgress}"></script>
 <!-- icheck -->
 <spring:url value="/resources/js/icheck/icheck.min.js" var="icheck" />
 <script src="${icheck}"></script>
 <!-- daterangepicker -->
 <spring:url value="/resources/js/moment/moment.min.js" var="momentJS" />
-<spring:url value="/resources/js/datepicker/daterangepicker.js" var="daterange" />
+<spring:url value="/resources/js/datepicker/daterangepicker.js"
+	var="daterange" />
 <script type="text/javascript" src="${momentJS}"></script>
 <script type="text/javascript" src="${daterange }"></script>
 <!-- chart js -->
 <spring:url value="/resources/js/chartjs/chart.min.js" var="chart" />
 <script src="${chart}"></script>
 <spring:url value="/resources/js/custom.js" var="customjs" />
-<script src="${customjs }"></script>        
- <c:set var="context" value="${pageContext.request.contextPath}" />       
+<script src="${customjs }"></script>
+
+<spring:url value="/resources/js/notify/pnotify.core.js" var="shreejs" />
+<script src="${shreejs }"></script>
+
+<c:set var="context" value="${pageContext.request.contextPath}" />
+<c:if test="${not empty var1}">
+    var1 is NOT empty or null.
+</c:if>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var someText = '${message}';
+		console.log(someText);
+		if (someText != "") {
+			new PNotify({
+				title : someText,
+				text : '${message}',
+				type : 'success'
+			});
+		}
+	})
+</script>
 </head>
 
 <body class="nav-md">

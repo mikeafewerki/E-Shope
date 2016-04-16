@@ -12,7 +12,7 @@ import com.springproject.eshop.repository.CategoryRepository;
 import com.springproject.eshop.service.ICategoryDAO;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class CategoryDAOImpl implements ICategoryDAO{
 
 	@Inject

@@ -7,14 +7,10 @@ import com.springproject.eshop.domain.User;
 
 public interface IUserDAO {
 	
-	
-	public abstract List<User> getAll();
-
-	public abstract void add(User user);
-
-	public abstract User get(int userId);
-
-	public abstract void update(int userId, User user);
-
-	public abstract void delete(int userId);
+	public List<User> findAll();
+	public User findById(long userId);
+	public void deleteAll();
+	public void delete(User user);
+	public void create(User user);
+	public void update(User user);
 }

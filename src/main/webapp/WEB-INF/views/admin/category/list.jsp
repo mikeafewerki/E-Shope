@@ -1,12 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<div class="right_col" role="main">
 
-</body>
-</html>
+	<!-- top tiles -->
+	<div class="row tile_count" style="min-height: 700px;">
+		<h1>All Categories</h1>
+		<table class="table table-responsive table-bordered">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Actions</td>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="category" items="${categories}">
+					<tr>
+					<td>${category.name }</td>
+					<td><a href="${context}/eshop/admin/editCategory/${category.categoryId}"><i class="fa fa-pencil"></i></a>
+						<a href="${context }/eshop/admin/deleteCategory/${category.categoryId}"><i class="fa fa-trash"></i></a>
+					</td>
+					</tr>
+				</c:forEach>
+
+			</tbody>
+		</table>
+	</div>
+</div>
