@@ -24,5 +24,35 @@ public class CategoryDAOImpl implements ICategoryDAO{
 		return (List<Category>) repository.findAll();
 	}
 
+	@Override
+	public Category findById(long categoryId) {
+		
+		return repository.findOne(categoryId);
+	}
+
+	@Override
+	public void deleteAll() {
+		
+		repository.deleteAll();
+	}
+
+	@Override
+	public void delete(Category category) {
+		
+		repository.delete(category);
+	}
+
+	@Override
+	public void create(Category category) {
+		
+		repository.save(category);
+	}
+
+	@Override
+	public void update(Category category) {
+		
+		repository.save(category);
+	}
+
 
 }
