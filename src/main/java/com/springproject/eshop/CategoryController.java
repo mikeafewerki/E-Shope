@@ -44,7 +44,7 @@ public class CategoryController {
 	@RequestMapping(value = "/admin/addCategory", method = RequestMethod.POST)
 	public String saveAddCategory(@ModelAttribute("category") Category category, Model model,
 			final RedirectAttributes redirectAttributes) {
-//		System.out.println(category.getName());
+		//System.out.println(category.getName());
 		categoryDAOImpl.create(category);
 		model.addAttribute("page", "category/list.jsp");
 		redirectAttributes.addFlashAttribute("message", "Category Added Successfully..");
@@ -61,12 +61,12 @@ public class CategoryController {
 	}
 	
 	@RequestMapping(value = "/admin/editCategory/{id}", method = RequestMethod.POST)
-	public String updateAdminCategory(Model model, @PathVariable long id, final RedirectAttributes redirectAttributes) {
+	public String updateAdminCategory(Model model, @PathVariable long id, @ModelAttribute("category") Category category, final RedirectAttributes redirectAttributes) {
 		
 		Category cat = categoryDAOImpl.findById(id);
-		cat.setCategoryId(id);
+		cat.setName(category.getName());
 		categoryDAOImpl.update(cat);
-		redirectAttributes.addFlashAttribute("message","Category is update successfully");
+		redirectAttributes.addFlashAttribute("message","Category is updated successfully");
 		
 		return "redirect:/admin/category";
 	}
@@ -75,7 +75,7 @@ public class CategoryController {
 	public String deleteAdminCategory(Model model, @PathVariable long id, final RedirectAttributes redirectAttributes) {
 		
 		Category cat = categoryDAOImpl.findById(id);
-		cat.setCategoryId(id);
+		//cat.setCategoryId(id);
 		categoryDAOImpl.delete(cat);
 		redirectAttributes.addFlashAttribute("message","Category is deleted successfully");
 		
