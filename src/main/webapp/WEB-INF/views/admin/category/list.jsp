@@ -7,7 +7,7 @@
 	<!-- top tiles -->
 	<div class="row tile_count" style="min-height: 700px;">
 		<h1>All Categories</h1>
-		<table class="table table-responsive table-bordered">
+		<table id="datatable" class="table table-responsive table-bordered datatable">
 			<thead>
 				<tr>
 					<td>Name</td>

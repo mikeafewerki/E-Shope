@@ -24,6 +24,9 @@
 
 <link rel="text/css" href="${customCss}" />
 
+<link
+	href="<spring:url value='/resources/js/datatables/jquery.dataTables.min.css' />"
+	rel="stylesheet" type="text/css" />
 <link href="${bootstrapCss}" rel="stylesheet">
 
 <link href="${fontAwesomeCss}" rel="stylesheet">
@@ -71,13 +74,31 @@
 	var="daterange" />
 <script type="text/javascript" src="${momentJS}"></script>
 <script type="text/javascript" src="${daterange }"></script>
+<!-- Datatables-->
+<script src="<spring:url value='/resources/js/datatables/jquery.dataTables.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/dataTables.bootstrap.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/dataTables.buttons.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/buttons.bootstrap.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/jszip.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/pdfmake.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/vfs_fonts.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/buttons.html5.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/buttons.print.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/dataTables.fixedHeader.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/dataTables.keyTable.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/dataTables.responsive.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/responsive.bootstrap.min.js' />"></script>
+<script src="<spring:url value='/resources/js/datatables/dataTables.scroller.min.js' />"></script>
 <!-- chart js -->
 <spring:url value="/resources/js/chartjs/chart.min.js" var="chart" />
 <script src="${chart}"></script>
 <spring:url value="/resources/js/custom.js" var="customjs" />
 <script src="${customjs }"></script>
 
-<spring:url value="/resources/js/notify/pnotify.core.js" var="shreejs" />
+<spring:url value="/resources/js/notify/pnotify.core.js" var="notJs" />
+<script src="${notJs }"></script>
+
+<spring:url value="/resources/js/shree.js" var="shreejs" />
 <script src="${shreejs }"></script>
 
 <c:set var="context" value="${pageContext.request.contextPath}" />
