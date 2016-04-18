@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springproject.eshop.domain.Category;
+import com.springproject.eshop.domain.Role;
 import com.springproject.eshop.domain.User;
 import com.springproject.eshop.service.IUserDAO;
 @Controller
@@ -82,10 +83,11 @@ public class UserController {
         return "role";
     }
 	private void initModelList(Model model) {
-        List<String> rolesList = new ArrayList<String>();
-        rolesList.add("ADMIN");
-        rolesList.add("MEMBER");
-        rolesList.add("GUEST");
+//        List<String> rolesList = new ArrayList<String>();
+        Role[] rolesList =Role.class.getEnumConstants();
+//        rolesList.add("ADMIN");
+//        rolesList.add("MEMBER");
+//        rolesList.add("GUEST");
         model.addAttribute("roles", rolesList);
     }
 }
