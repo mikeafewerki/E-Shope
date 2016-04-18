@@ -38,5 +38,13 @@ public class HomeController {
 		model.addAttribute("categories",categories);
 		return "home";
 	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register(Model model) {
+		List<Category> categories = categoryDAO.findAll();
+		
+		model.addAttribute("categories",categories);
+		return "signup";
+	}
 
 }

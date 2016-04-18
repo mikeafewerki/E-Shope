@@ -116,7 +116,7 @@
 							<a href="#">Lost your password?</a>
 						</p>
 						<div class="aa-register-now">
-							Don't have an account?<a href="account.html">Register now!</a>
+							Don't have an account?<a href="register">Register now!</a>
 						</div>
 					</form>
 				</div>

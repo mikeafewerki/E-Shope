@@ -9,7 +9,9 @@
 	<definition name="home" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
 	</definition>
-
+	<definition name="signup" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/signup.jsp" />
+	</definition>
 	
 
 </tiles-definitions>
