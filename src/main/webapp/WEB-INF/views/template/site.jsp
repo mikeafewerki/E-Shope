@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,78 +81,81 @@
 	<!-- Start header section -->
 	<header id="aa-header">
 
-
+		<!-- 		<h1>I am siteeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h1> -->
 		<tiles:insertAttribute name="header" />
-	  </header>
-		<!-- Body Page -->
-
+	</header>
+	<!-- Body Page -->
+	<div id="tileBody">
 		<tiles:insertAttribute name="body" />
-
-		<!-- Footer Page -->
+	</div>
+	<!-- Footer Page -->
+	<div id="tileFooter">
 		<tiles:insertAttribute name="footer" />
+	</div>
+	<!-- / footer -->
 
-		<!-- Login Modal -->
-		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-body">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-						<h4>Login or Register</h4>
-						<form class="aa-login-form" action="">
-							<label for="">Username or Email address<span>*</span></label> <input
-								type="text" placeholder="Username or email"> <label
-								for="">Password<span>*</span></label> <input type="password"
-								placeholder="Password">
-							<button class="aa-browse-btn" type="submit">Login</button>
-							<label for="rememberme" class="rememberme"><input
-								type="checkbox" id="rememberme"> Remember me </label>
-							<p class="aa-lost-password">
-								<a href="#">Lost your password?</a>
-							</p>
-							<div class="aa-register-now">
-								Don't have an account?<a href="account.html">Register now!</a>
-							</div>
-						</form>
-					</div>
+	<!-- Login Modal -->
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4>Login or Register</h4>
+					<form class="aa-login-form" action="">
+						<label for="">Username or Email address<span>*</span></label> <input
+							type="text" placeholder="Username or email"> <label
+							for="">Password<span>*</span></label> <input type="password"
+							placeholder="Password">
+						<button class="aa-browse-btn" type="submit">Login</button>
+						<label for="rememberme" class="rememberme"><input
+							type="checkbox" id="rememberme"> Remember me </label>
+						<p class="aa-lost-password">
+							<a href="#">Lost your password?</a>
+						</p>
+						<div class="aa-register-now">
+							Don't have an account?<a href="account.html">Register now!</a>
+						</div>
+					</form>
 				</div>
-				<!-- /.modal-content -->
 			</div>
-			<!-- /.modal-dialog -->
+			<!-- /.modal-content -->
 		</div>
+		<!-- /.modal-dialog -->
+	</div>
 
-		<!-- jQuery library -->
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script
-			src="<spring:url value='/resources/front/js/bootstrap.js'></spring:url>"></script>
-		<!-- SmartMenus jQuery plugin -->
-		<script type="text/javascript"
-			src="<spring:url value='/resources/front/js/jquery.smartmenus.js'></spring:url>"></script>
-		<!-- SmartMenus jQuery Bootstrap Addon -->
-		<script type="text/javascript"
-			src="<spring:url value='/resources/front/js/jquery.smartmenus.bootstrap.js'></spring:url>"></script>
-		<!-- To Slider JS -->
-		<script
-			src="<spring:url value='/resources/front/js/sequence.js'></spring:url>"></script>
-		<script
-			src="<spring:url value='/resources/front/js/sequence-theme.modern-slide-in.js'></spring:url>"></script>
-		<!-- Product view slider -->
-		<script type="text/javascript"
-			src="<spring:url value='/resources/front/js/jquery.simpleGallery.js'></spring:url>"></script>
-		<script type="text/javascript"
-			src="<spring:url value='/resources/front/js/jquery.simpleLens.js'></spring:url>"></script>
-		<!-- slick slider -->
-		<script type="text/javascript"
-			src="<spring:url value='/resources/front/js/slick.js'></spring:url>"></script>
-		<!-- Price picker slider -->
-		<script type="text/javascript"
-			src="<spring:url value='/resources/front/js/nouislider.js'></spring:url>"></script>
-		<!-- Custom js -->
+	<!-- jQuery library -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script
+		src="<spring:url value='/resources/front/js/bootstrap.js'></spring:url>"></script>
+	<!-- SmartMenus jQuery plugin -->
+	<script type="text/javascript"
+		src="<spring:url value='/resources/front/js/jquery.smartmenus.js'></spring:url>"></script>
+	<!-- SmartMenus jQuery Bootstrap Addon -->
+	<script type="text/javascript"
+		src="<spring:url value='/resources/front/js/jquery.smartmenus.bootstrap.js'></spring:url>"></script>
+	<!-- To Slider JS -->
+	<script
+		src="<spring:url value='/resources/front/js/sequence.js'></spring:url>"></script>
+	<script
+		src="<spring:url value='/resources/front/js/sequence-theme.modern-slide-in.js'></spring:url>"></script>
+	<!-- Product view slider -->
+	<script type="text/javascript"
+		src="<spring:url value='/resources/front/js/jquery.simpleGallery.js'></spring:url>"></script>
+	<script type="text/javascript"
+		src="<spring:url value='/resources/front/js/jquery.simpleLens.js'></spring:url>"></script>
+	<!-- slick slider -->
+	<script type="text/javascript"
+		src="<spring:url value='/resources/front/js/slick.js'></spring:url>"></script>
+	<!-- Price picker slider -->
+	<script type="text/javascript"
+		src="<spring:url value='/resources/front/js/nouislider.js'></spring:url>"></script>
+	<!-- Custom js -->
 
-		<script type="text/javascript"
-			src="<spring:url value='/resources/front/js/custom.js'></spring:url>"></script>
+	<script type="text/javascript"
+		src="<spring:url value='/resources/front/js/custom.js'></spring:url>"></script>
 </body>
 </html>

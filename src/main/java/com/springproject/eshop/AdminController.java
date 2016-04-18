@@ -18,7 +18,7 @@ import com.springproject.eshop.domain.Category;
 @Controller
 public class AdminController {
 
-	@RequestMapping(value = "/adminHome", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminHome(Model model) {
 		
 		model.addAttribute("page","adminHome.jsp");

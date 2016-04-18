@@ -4,7 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-<jsp:include page="includes/header.jsp"/>
 
   <!-- Start slider -->
   <section id="aa-slider">
@@ -1508,5 +1507,5 @@
   
   
   
-<jsp:include page="includes/footer.jsp"/>
+
   
