@@ -20,9 +20,9 @@ public class Product {
 	private double price;
 	private int currQty;
 	
-//	@OneToMany
-//	@JoinColumn(name="imageId")
-//	private List<Image> images = new ArrayList<Image>();
+	@OneToMany
+	//@JoinColumn(name="imageId")
+	private List<Image> images;
 	
 	@OneToMany(mappedBy="product")
 	//private int stockId;
@@ -77,12 +77,12 @@ public class Product {
 	public void setCurrQty(int currQty) {
 		this.currQty = currQty;
 	}
-//	public List<Image> getImages() {
-//		return images;
-//	}
-//	public void setImages(List<Image> images) {
-//		this.images = images;
-//	}
+	public List<Image> getImages() {
+		return images;
+	}
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
 //	public int getStockId() {
 //		return stockId;
 //	}

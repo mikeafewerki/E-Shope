@@ -24,9 +24,6 @@ public class CategoryController {
 	@RequestMapping(value = "/admin/category", method = RequestMethod.GET)
 	public String adminCategory(Model model) {
 		List<Category> categories= categoryDAOImpl.findAll();
-//		for(Category cat : categories){
-//			System.out.println(cat.getName());
-//		}
 		
 		model.addAttribute("categories",categories);
 		model.addAttribute("page", "category/list.jsp");
@@ -75,7 +72,6 @@ public class CategoryController {
 	public String deleteAdminCategory(Model model, @PathVariable long id, final RedirectAttributes redirectAttributes) {
 		
 		Category cat = categoryDAOImpl.findById(id);
-		//cat.setCategoryId(id);
 		categoryDAOImpl.delete(cat);
 		redirectAttributes.addFlashAttribute("message","Category is deleted successfully");
 		
