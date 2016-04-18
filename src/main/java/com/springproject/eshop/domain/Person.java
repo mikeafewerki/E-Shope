@@ -52,6 +52,14 @@ public abstract class Person {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	
 }
