@@ -77,11 +77,11 @@ public class UserController {
 		
 		return "redirect:/admin/user";
 	}
-	@RequestMapping(method = RequestMethod.GET)
-    public String initForm(Model model) {
-        initModelList(model);
-        return "role";
-    }
+//	@RequestMapping(method = RequestMethod.GET)
+//    public String initForm(Model model) {
+//        initModelList(model);
+//        return "role";
+//    }
 	private void initModelList(Model model) {
 //        List<String> rolesList = new ArrayList<String>();
         Role[] rolesList =Role.class.getEnumConstants();

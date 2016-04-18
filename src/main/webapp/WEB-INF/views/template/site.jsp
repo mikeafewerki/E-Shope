@@ -5,13 +5,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<c:set var="baseURL" value="${pageContext.servletContext.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eshop Shop | Home</title>
+<title>Eshop Shop | Home </title>
 
 <!-- Font awesome -->
 <link
