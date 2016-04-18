@@ -40,8 +40,8 @@
 					<li><a><i class="fa fa-book"></i>Product <span
 							class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="products">All Products</a></li>
-							<li><a href="addProduct">Add Product</a></li>
+							<li><a href="${context}/eshop/admin/product">All Products</a></li>
+							<li><a href="${context }/eshop/admin/addProduct">Add Product</a></li>
 
 						</ul></li>
 						<li><a href="orders"><i class="fa fa-shopping-cart"></i> Orders </a></li>
