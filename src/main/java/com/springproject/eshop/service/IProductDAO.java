@@ -12,4 +12,5 @@ public interface IProductDAO {
 	public void delete(Product product);
 	public void create(Product product);
 	public void update(Product product);
+	public List<Product> findByCategory(long categoryId);
 }

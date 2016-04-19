@@ -21,7 +21,7 @@
 												x++; //text box increment
 												$(wrapper)
 														.append(
-																'<div><input type="file" name="image[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+																'<div><input type="file" name="file" accept="image/*" /><a href="#" class="remove_field">Remove</a></div>'); //add input box
 											}
 										});
 
@@ -87,7 +87,7 @@
 				<div class="form-group">
 					<label class="control-label">Image</label>
 					<div class="input_fields_wrap">
-						<input type="file" name="file">
+						<input type="file" name="file" accept="image/*" />
 					</div>
 				</div>
 				<div>

@@ -3,12 +3,15 @@ package com.springproject.eshop.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 public class Product {
@@ -20,8 +23,8 @@ public class Product {
 	private double price;
 	private int currQty;
 	
-	@OneToMany
-	//@JoinColumn(name="imageId")
+	@OneToMany(mappedBy="product")
+	//@JoinColumn(name="productId")
 	private List<Image> images;
 	
 	@OneToMany(mappedBy="product")
@@ -34,6 +37,9 @@ public class Product {
 	private Category category;
 	
 	
+	public Image getImage(){
+		return images.get(0);
+	}
 	
 	public List<Stock> getStock() {
 		return stock;
@@ -80,8 +86,13 @@ public class Product {
 	public List<Image> getImages() {
 		return images;
 	}
-	public void setImages(List<Image> images) {
-		this.images = images;
+	public void addImage(Image image) {
+		if(images==null){
+			images = new ArrayList<Image>();
+			images.add(image);
+			return;
+		}
+		images.add(image);
 	}
 //	public int getStockId() {
 //		return stockId;
