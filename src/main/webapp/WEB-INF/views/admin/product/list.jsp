@@ -7,11 +7,12 @@
 	<!-- top tiles -->
 	<div class="row tile_count" style="min-height: 700px;">
 		<h1>All Products</h1>
-		<table class="table table-responsive table-bordered">
+		<table class="table table-responsive table-bordered datatable">
 			<thead>
 				<tr>
 					<td>Name</td>
-					<td>Description</td>
+					<td>Image</td>
+					<td>Other images</td>
 					<td>Unit Price</td>
 					<td>Amount in Stock</td>
 					<td>Category</td>
@@ -23,6 +24,7 @@
 					<tr>
 					<td>${product.name }</td>
 					<td>${product.description }</td>
+					<td><a href="${context}/eshop/admin/image/${product.productId}">view</a></td>
 					<td>${product.price }</td>
 					<td>${product.currQty }</td>
 					<td>${product.category.name }</td>

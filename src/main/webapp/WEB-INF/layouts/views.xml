@@ -12,6 +12,9 @@
 	<definition name="signup" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/signup.jsp" />
 	</definition>
+		<definition name="products" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/products.jsp" />
+	</definition>
 	
 
 </tiles-definitions>

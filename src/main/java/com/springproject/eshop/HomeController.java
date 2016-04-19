@@ -20,7 +20,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.springproject.eshop.domain.Category;
 import com.springproject.eshop.domain.User;
 import com.springproject.eshop.service.ICategoryDAO;
+
+import com.springproject.eshop.service.IProductDAO;
+
 import com.springproject.eshop.service.IUserDAO;
+
 
 /**
  * Handles requests for the application home page.
@@ -29,8 +33,10 @@ import com.springproject.eshop.service.IUserDAO;
 public class HomeController {
 	@Resource
 	private ICategoryDAO categoryDAO;
+
 	@Resource
 	private IUserDAO userDAOImpl;
+
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
