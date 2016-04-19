@@ -6,7 +6,7 @@
 <c:if test="${empty user.userName}">
 		<spring:url value="addUser" var="actionUrl" />
 	</c:if>
-	<c:if test="${not empty category.userName}">
+	<c:if test="${not empty user.userName}">
 		<spring:url value="/admin/editUser/${user.id }" var="actionUrl" />
 	</c:if>
 <div class="right_col" role="main">
