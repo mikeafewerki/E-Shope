@@ -11,11 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.springproject.eshop.domain.Category;
+import com.springproject.eshop.domain.Product;
 import com.springproject.eshop.service.ICategoryDAO;
 import com.springproject.eshop.service.IProductDAO;
 
@@ -23,30 +25,29 @@ import com.springproject.eshop.service.IProductDAO;
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController {
+public class FrontController {
 	@Resource
 	private ICategoryDAO categoryDAO;
+
+	@Resource
+	private IProductDAO productDAO;
 	
+	private static final Logger logger = LoggerFactory.getLogger(FrontController.class);
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	
+	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
+	public String productByCat(Model model, @PathVariable long id) {
+//		Category cat = categoryDAO.findById(id);
+		List<Product> products = productDAO.findByCategory(id);
+		System.out.println(products.toString());
+//		for(Product p : products){
+//			System.out.println(p.getName());
+//		}
 		List<Category> categories = categoryDAO.findAll();
 		
 		model.addAttribute("categories",categories);
-		return "home";
-	}
-	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String register(Model model) {
-		List<Category> categories = categoryDAO.findAll();
-		
-		model.addAttribute("categories",categories);
-		return "signup";
+		return "products";
 	}
 
 }

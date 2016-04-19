@@ -61,18 +61,26 @@
 		<div id="wrapper">
 			<div id="login" class="animate form">
 				<section class="login_content">
-					<form:form method="post" modelAttribute="login"
-						action="login">
+					<c:if test="${not empty error}">
+						<p class="text-danger">${error}</p>
+					</c:if>
+					<c:if test="${not empty msg}">
+						<p class="text-info">${msg}</p>
+					</c:if>
+					<form method="post" action="<c:url value='/j_spring_security_check' />">
 						<h1>eShop Admin Login</h1>
 						<div>
-							<form:input path="userName" cssClass="form-control" type="text" />
+							<input name="username" class="form-control" type="text" />
 						</div>
 						<div>
-							<form:input path="password" cssClass="form-control" type="password" />
+							<input name="password" class="form-control"
+								type="password" />
 						</div>
-						
+						<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 						<div>
-							<button type="submit" class="btn btn-default submit">Log in</button>
+							<button type="submit" class="btn btn-default submit">Log
+								in</button>
 							<!--               <a class="reset_pass" href="#">Lost your password?</a> -->
 						</div>
 						<div class="clearfix"></div>
@@ -88,9 +96,9 @@
 								<p>©2015 All Rights Reserved.</p>
 							</div>
 						</div>
-						
-					</form:form>
-					
+
+					</form>
+
 					<!-- form -->
 				</section>
 				<!-- content -->

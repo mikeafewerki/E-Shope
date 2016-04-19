@@ -1,3 +1,7 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div class="col-md-3 left_col">
 	<div class="left_col scroll-view">
 
@@ -28,23 +32,29 @@
 			<div class="menu_section">
 				<h3>General</h3>
 				<ul class="nav side-menu">
-					<li><a href="adminHome"><i class="fa fa-home"></i> Home </a></li>
+					<li><a href="/eshop/admin"><i class="fa fa-home"></i> Home
+					</a></li>
 					<li><a><i class="fa fa-leaf"></i>Categories <span
 							class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="${context}/eshop/admin/category">All Categories</a></li>
-							<li><a href="${context }/eshop/admin/addCategory">Add Category</a></li>
+							<li><a href="${context}/eshop/admin/category">All
+									Categories</a></li>
+							<li><a href="${context }/eshop/admin/addCategory">Add
+									Category</a></li>
 
 						</ul></li>
 
 					<li><a><i class="fa fa-book"></i>Product <span
 							class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="${context}/eshop/admin/product">All Products</a></li>
-							<li><a href="${context }/eshop/admin/addProduct">Add Product</a></li>
+							<li><a href="${context}/eshop/admin/product">All
+									Products</a></li>
+							<li><a href="${context }/eshop/admin/addProduct">Add
+									Product</a></li>
 
 						</ul></li>
-						<li><a href="orders"><i class="fa fa-shopping-cart"></i> Orders </a></li>
+					<li><a href="orders"><i class="fa fa-shopping-cart"></i>
+							Orders </a></li>
 				</ul>
 			</div>
 
@@ -80,9 +90,20 @@
 						<!-- 											class="badge bg-red pull-right">50%</span> <span>Settings</span> -->
 						<!-- 									</a></li> -->
 						<!-- 									<li><a href="javascript:;">Help</a></li> -->
-						<li><a href="login.html"><i
+						<li><a href="javascript:void(0);" onclick="logout()"><i
 								class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 					</ul></li>
+				<c:url value="/j_spring_security_logout" var="logoutUrl" />
+				<form action="${logoutUrl}" method="post" id="logoutForm">
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+				</form>
+				<script>
+					function logout() {
+// 						alert("click");
+						document.getElementById("logoutForm").submit();
+					}
+				</script>
 
 				<!-- 							<li role="presentation" class="dropdown"><a -->
 				<!-- 								href="javascript:;" class="dropdown-toggle info-number" -->
