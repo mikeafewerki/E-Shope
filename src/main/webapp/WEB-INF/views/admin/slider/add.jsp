@@ -25,6 +25,8 @@
 			<form:form method="post" modelAttribute="slider"
 				action="${actionUrl}">
 				<div class="form-group">
+					<label class="control-label">Enter Title</label>
+					<form:input path="title" type="text" />
 					<label class="control-label">Enter Slider Description</label>
 					<form:input path="description" type="text" />
 				</div>
