@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.springproject.eshop.domain.Category;
 import com.springproject.eshop.domain.Product;
 import com.springproject.eshop.repository.ProductRepository;
 import com.springproject.eshop.service.IProductDAO;
@@ -56,8 +57,13 @@ public class ProductDAOImpl implements IProductDAO {
 
 	@Override
 	public List<Product> findByCategory(long categoryId) {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		return repository.findByCategoryId(categoryId);
+=======
+		repository. findByCateogry(categoryId);
+		return null;
+>>>>>>> bd27f75764ff693988ff9126254543424e105713
 	}
 
 }
