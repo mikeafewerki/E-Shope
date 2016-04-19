@@ -9,7 +9,7 @@ public interface IProductDAO {
 	
 	public List<Product> findAll();
 	public Product findById(long productId);
-	public List<Product> findByCategory(long categoryId);
+	
 	public void deleteAll();
 	public void delete(Product product);
 	public void create(Product product);

@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-<<<<<<< HEAD
+
 import org.springframework.web.multipart.MultipartFile;
-=======
->>>>>>> bd27f75764ff693988ff9126254543424e105713
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springproject.eshop.domain.Category;
@@ -58,7 +57,7 @@ public class ProductController {
 
 	@RequestMapping(value = "/admin/addProduct", method = RequestMethod.POST)
 	public String saveAddProduct(@ModelAttribute("product") Product product, Model model,
-<<<<<<< HEAD
+
 			@RequestParam("file") MultipartFile[] file, @RequestParam("cat") Long catId,
 			final RedirectAttributes redirectAttributes) throws IOException {
 
@@ -72,10 +71,10 @@ public class ProductController {
 			//imageDao.create(img);
 		}
 		
-=======
-			@RequestParam("cat") Long catId, final RedirectAttributes redirectAttributes) {
 
->>>>>>> bd27f75764ff693988ff9126254543424e105713
+//			@RequestParam("cat") Long catId, final RedirectAttributes redirectAttributes) {
+
+
 		Category proCat = categorytDao.findById(catId);
 		product.setCategory(proCat);
 		productDao.create(product);

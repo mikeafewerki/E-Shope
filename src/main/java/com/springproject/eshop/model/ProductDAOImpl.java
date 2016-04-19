@@ -57,13 +57,11 @@ public class ProductDAOImpl implements IProductDAO {
 
 	@Override
 	public List<Product> findByCategory(long categoryId) {
-<<<<<<< HEAD
+
 		// TODO Auto-generated method stub
 		return repository.findByCategoryId(categoryId);
-=======
-		repository. findByCateogry(categoryId);
-		return null;
->>>>>>> bd27f75764ff693988ff9126254543424e105713
+
+
 	}
 
 }

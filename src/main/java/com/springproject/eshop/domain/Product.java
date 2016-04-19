@@ -22,6 +22,7 @@ public class Product {
 	private String description;
 	private double price;
 	private int currQty;
+	private Image firstImage;
 	
 	@OneToMany(mappedBy="product")
 	//@JoinColumn(name="productId")
@@ -37,6 +38,11 @@ public class Product {
 	private Category category;
 	
 	
+	public Image getFirstImage() {
+		this.firstImage = getImage();
+		return firstImage;
+	}
+
 	public Image getImage(){
 		return images.get(0);
 	}
