@@ -2,7 +2,9 @@ package com.springproject.eshop;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -37,7 +39,12 @@ public class ProductController {
 	public String adminProduct(Model model) {
 		List<Product> products = productDao.findAll();
 		//List<Product> products = productDao.findByCategory(4L);
+		Map<Product,Image> images = new HashMap<Product,Image>();
+		for(Product pro : products)
+			images.put(pro, imageDao.findByProduct(pro.getProductId()).get(0));
+		
 		model.addAttribute("products", products);
+		model.addAttribute("image",images);
 		model.addAttribute("page", "product/list.jsp");
 		return "admin/index";
 	}
