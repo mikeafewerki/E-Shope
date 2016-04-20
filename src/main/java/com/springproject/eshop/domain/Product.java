@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -23,7 +24,7 @@ public class Product {
 	private double price;
 	private int currQty;
 	
-	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="product", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	//, cascade=CascadeType.ALL
 	private List<Image> images;
 	

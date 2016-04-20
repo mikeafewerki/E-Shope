@@ -1,3 +1,7 @@
 $(document).ready(function(){
-	$('.datatable').dataTable();
+	
 })
+
+function addCart(id){
+	
+}

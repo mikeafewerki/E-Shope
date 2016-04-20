@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.springproject.eshop.domain.Category;
+import com.springproject.eshop.domain.Image;
 import com.springproject.eshop.domain.Product;
 import com.springproject.eshop.service.ICategoryDAO;
 import com.springproject.eshop.service.IProductDAO;
@@ -40,13 +41,15 @@ public class FrontController {
 	public String productByCat(Model model, @PathVariable long id) {
 //		Category cat = categoryDAO.findById(id);
 		List<Product> products = productDAO.findByCategory(id);
-		System.out.println(products.toString());
-//		for(Product p : products){
-//			System.out.println(p.getName());
-//		}
-		List<Category> categories = categoryDAO.findAll();
+		for(Product p:products){
+			Image img = p.getImage();
+			System.out.println(img.getUrl());
+		}
 		
+		List<Category> categories = categoryDAO.findAll();
+		model.addAttribute("products",products);
 		model.addAttribute("categories",categories);
+		model.addAttribute("currentCat",categoryDAO.findById(id));
 		return "products";
 	}
 

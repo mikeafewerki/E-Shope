@@ -5386,3 +5386,9 @@ ul.notifications {
   width: 100%;
   height: 2px;
 }
+
+.simpleLens-thumbnail-wrapper > img {
+    border: 1px solid #ddd;
+    height: 80px;
+    width: 80px;
+}
