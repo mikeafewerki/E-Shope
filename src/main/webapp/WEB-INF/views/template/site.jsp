@@ -5,14 +5,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<c:set var="baseURL" value="${pageContext.servletContext.contextPath}"/>
+<c:set var="baseURL" value="${pageContext.servletContext.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eshop Shop | Home </title>
+<title>Eshop Shop | Home</title>
 
 <!-- Font awesome -->
 <link
@@ -68,11 +68,11 @@
 </head>
 <body>
 	<!-- wpf loader Two -->
-<!-- 	<div id="wpf-loader-two"> -->
-<!-- 		<div class="wpf-loader-two-inner"> -->
-<!-- 			<span>Loading</span> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
+	<!-- 	<div id="wpf-loader-two"> -->
+	<!-- 		<div class="wpf-loader-two-inner"> -->
+	<!-- 			<span>Loading</span> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
 	<!-- / wpf loader Two -->
 	<!-- SCROLL TOP BUTTON -->
 	<a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
@@ -94,7 +94,7 @@
 		<tiles:insertAttribute name="footer" />
 	</div>
 	<!-- / footer -->
-
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 	<!-- Login Modal -->
 	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
@@ -104,11 +104,12 @@
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
 					<h4>Login or Register</h4>
-					<form class="aa-login-form" action="">
-						<label for="">Username or Email address<span>*</span></label> <input
-							type="text" placeholder="Username or email"> <label
-							for="">Password<span>*</span></label> <input type="password"
-							placeholder="Password">
+					<form:form action="${baseURL}/login" modelAttribute="user"
+						class="aa-login-form">
+						<label for="">Username<span>*</span></label>
+						<form:input path="userName" />
+						<label for="">Password<span>*</span></label>
+						<form:input path="password" />
 						<button class="aa-browse-btn" type="submit">Login</button>
 						<label for="rememberme" class="rememberme"><input
 							type="checkbox" id="rememberme"> Remember me </label>
@@ -118,7 +119,25 @@
 						<div class="aa-register-now">
 							Don't have an account?<a href="register">Register now!</a>
 						</div>
-					</form>
+					</form:form>
+
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 id="modal_message">${message }</h4>
+
+
 				</div>
 			</div>
 			<!-- /.modal-content -->
@@ -158,7 +177,18 @@
 
 	<script type="text/javascript"
 		src="<spring:url value='/resources/front/js/custom.js'></spring:url>"></script>
-		<script type="text/javascript"
+	<script type="text/javascript"
 		src="<spring:url value='/resources/front/js/shree.js'></spring:url>"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var someText = '${message}';
+			console.log(someText);
+			if (someText != "") {
+				$('#messageModal').modal('show');
+			}
+		})
+	</script>
+
+
 </body>
 </html>

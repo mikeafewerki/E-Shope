@@ -13,7 +13,7 @@
 					<!-- start header top left -->
 					<div class="aa-header-top-left">
 						<!-- start language -->
-						
+
 						<!-- / language -->
 
 						<!-- start currency -->
@@ -34,9 +34,9 @@
 						<!-- start cellphone -->
 						<div class="cellphone hidden-xs">
 							<p>
-							<c:forEach var="siteSetting" items="${siteSettings}">
-								<span class="fa fa-phone">${siteSetting.phoneNo }</span>
-							</c:forEach>	
+								<c:forEach var="siteSetting" items="${siteSettings}">
+									<span class="fa fa-phone">${siteSetting.phoneNo }</span>
+								</c:forEach>
 							</p>
 						</div>
 						<!-- / cellphone -->
@@ -44,12 +44,28 @@
 					<!-- / header top left -->
 					<div class="aa-header-top-right">
 						<ul class="aa-head-top-nav-right">
+
+
+							<%
+								if (session.getAttribute("userId") == null) {
+							%>
+							
+							<li><a href="javascript:void(0)" data-toggle="modal"
+								data-target="#login-modal">Login</a></li>
+							<%
+								} else {
+							%>
 							<li><a href="account.html">My Account</a></li>
 							<li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
 							<li class="hidden-xs"><a href="cart.html">My Cart</a></li>
 							<li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-							<li><a href="" data-toggle="modal"
-								data-target="#login-modal">Login</a></li>
+							<li><a href="${baseURL }/eshop/logout">Logout</a></li>
+							<%
+								}
+							%>
+
+
+							
 						</ul>
 					</div>
 				</div>
@@ -113,7 +129,8 @@
 					<!-- / cart box -->
 					<!-- search box -->
 					<div class="aa-search-box">
-						<form:form method="post" modelAttribute="searchResult" action="${actionUrl}">
+						<form:form method="post" modelAttribute="searchResult"
+							action="${actionUrl}">
 							<input type="text" name="txtSearch" id="txtSearch"
 								placeholder="Search here ex. 'man' ">
 							<button type="submit">

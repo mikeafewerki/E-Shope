@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.springproject.eshop.domain.Category;
 import com.springproject.eshop.domain.Image;
 import com.springproject.eshop.domain.Product;
+import com.springproject.eshop.domain.User;
 import com.springproject.eshop.service.ICategoryDAO;
 import com.springproject.eshop.service.IProductDAO;
 
@@ -32,24 +33,24 @@ public class FrontController {
 
 	@Resource
 	private IProductDAO productDAO;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(FrontController.class);
 
-
-	
 	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
 	public String productByCat(Model model, @PathVariable long id) {
-//		Category cat = categoryDAO.findById(id);
+		// Category cat = categoryDAO.findById(id);
 		List<Product> products = productDAO.findByCategory(id);
-		for(Product p:products){
+		for (Product p : products) {
 			Image img = p.getImage();
-			System.out.println(img.getUrl());
+
 		}
-		
+
 		List<Category> categories = categoryDAO.findAll();
-		model.addAttribute("products",products);
-		model.addAttribute("categories",categories);
-		model.addAttribute("currentCat",categoryDAO.findById(id));
+		model.addAttribute("products", products);
+		model.addAttribute("categories", categories);
+		model.addAttribute("currentCat", categoryDAO.findById(id));
+		User user = new User();
+		model.addAttribute("user", user);
 		return "products";
 	}
 

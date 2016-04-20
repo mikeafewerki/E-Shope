@@ -59,5 +59,11 @@ public class UserDAOImpl implements IUserDAO{
 		repository.save(user);
 	}
 
+	@Override
+	public User findByUserNamePassword(String userName, String password) {
+		return repository.findByUserNamePassword(userName, password);
+		
+	}
+
 	
 }

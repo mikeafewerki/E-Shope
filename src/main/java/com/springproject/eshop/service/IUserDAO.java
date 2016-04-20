@@ -13,4 +13,5 @@ public interface IUserDAO {
 	public void delete(User user);
 	public void create(User user);
 	public void update(User user);
+	public User findByUserNamePassword(String userName, String password);
 }

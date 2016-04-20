@@ -39,11 +39,12 @@ public class AjaxController {
 	@ResponseBody
 	@RequestMapping(value = "/addCart/{id}", method = RequestMethod.GET)
 	public String addCart(Locale locale, Model model, @PathVariable long id) {
-		httpSession.setAttribute("shree","raj");
-		
-		String result = (String) httpSession.getAttribute("shree");
 		JSONObject obj = new JSONObject();
-		obj.put("name", "mkyong.com");
+		if (httpSession.getAttribute("userId") == null || httpSession.getAttribute("userId") == "") {
+			obj.put("login", 0);
+		}else{
+			obj.put("login", 1);
+		}
 		
 		return obj.toJSONString();
 	}

@@ -10,7 +10,10 @@ function addCart(id){
 		
 		dataType:'json',
 		success:function(data){
-			
+			if(data.login==0){
+				$('#modal_message').html("Please login to add to cart");
+				$('#messageModal').modal('show');
+			}
 		}
 	})
 }

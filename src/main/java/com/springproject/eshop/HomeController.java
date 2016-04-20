@@ -1,12 +1,15 @@
 package com.springproject.eshop;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -42,6 +45,8 @@ public class HomeController {
 	private IProductDAO productDAOImpl;
 	@Resource
 	private ISiteSettingDAO siteSettingDAOImpl;
+	@Autowired
+	private HttpSession httpsession;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -62,15 +67,21 @@ public class HomeController {
 		
 		model.addAttribute("siteSettings",siteSettings);
 		
+		User user = new User();
+		model.addAttribute("user",user);
+		
 		return "home";
 	}
+	
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String search(@ModelAttribute("searchResult") Product product, Model model,@RequestParam("txtSearch") String txtSearch,
 			final RedirectAttributes redirectAttributes) {
 		model.addAttribute("txtSearch",txtSearch);
 		model.addAttribute("page", "/searchResult.jsp");
-		
+		User user = new User();
+		model.addAttribute("user",user);
 		return "redirect:/searchResult/"+txtSearch;
 	}
 
@@ -78,6 +89,8 @@ public class HomeController {
 	public String searchResult(@ModelAttribute("searchResult") Product product,Model model, @PathVariable String id) {
 		List<Product> products = productDAOImpl.findByName(id);
 		model.addAttribute("products",products);
+		User user = new User();
+		model.addAttribute("user",user);
 		return "searchResult";
 	}
 	
@@ -88,6 +101,7 @@ public class HomeController {
 		User user = new User();
 		model.addAttribute(user);
 		model.addAttribute("categories",categories);
+		
 		return "signup";
 	}
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -99,5 +113,33 @@ public class HomeController {
 		redirectAttributes.addFlashAttribute("message", "User Added Successfully..");
 		return "redirect:/";
 	}
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(Model model, @ModelAttribute User user, final RedirectAttributes redirectAttributes) {
+		String username = user.getUserName();
+		String password = user.getPassword();
+		User validUser = userDAOImpl.findByUserNamePassword(username, password);
+		if(validUser!=null){
+			httpsession.setAttribute("userId", validUser.getId());
+			httpsession.setAttribute("username", validUser.getUserName());
+			List<Product> products = new ArrayList<Product>();
+			httpsession.setAttribute("products", products);
+			
+			redirectAttributes.addFlashAttribute("message","Login Successfull");
+		}else{
+			redirectAttributes.addFlashAttribute("message","Invalid Login");
+		}
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Model model,
+			final RedirectAttributes redirectAttributes) {
+		//System.out.println(category.getName());
+		httpsession.invalidate();
+		redirectAttributes.addFlashAttribute("message", "Logout Successfully..");
+		return "redirect:/";
+	}
+	
+	
 
 }
