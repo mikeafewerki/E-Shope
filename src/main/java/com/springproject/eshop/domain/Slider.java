@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 @Entity
 public class Slider {
@@ -12,6 +15,9 @@ public class Slider {
 	private long sliderId;
 	
 	private String description;
+	
+	private transient CommonsMultipartFile sliderPicture = null;
+	
 	@Lob
 	private Byte[] image;
 	
@@ -41,5 +47,11 @@ public class Slider {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public CommonsMultipartFile getSliderPicture() {
+		return sliderPicture;
+	}
+	public void setSliderPicture(CommonsMultipartFile sliderPicture) {
+		this.sliderPicture = sliderPicture;
 	}
 }
