@@ -42,10 +42,37 @@ public class AjaxController {
 		JSONObject obj = new JSONObject();
 		if (httpSession.getAttribute("userId") == null || httpSession.getAttribute("userId") == "") {
 			obj.put("login", 0);
-		}else{
+		} else {
 			obj.put("login", 1);
+			List<Long> cart = (List<Long>) httpSession.getAttribute("products");
+			if (!cart.contains(id)) {
+				cart.add(id);
+			}
+			httpSession.setAttribute("products", cart);
+			httpSession.setAttribute("total",cart.size());
+			obj.put("products", cart);
 		}
-		
+
+		return obj.toJSONString();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/removeCart/{id}", method = RequestMethod.GET)
+	public String removeCart(Locale locale, Model model, @PathVariable long id) {
+		JSONObject obj = new JSONObject();
+		if (httpSession.getAttribute("userId") == null || httpSession.getAttribute("userId") == "") {
+			obj.put("login", 0);
+		} else {
+			obj.put("login", 1);
+			List<Long> cart = (List<Long>) httpSession.getAttribute("products");
+			if (cart.contains(id)) {
+				cart.remove(id);
+			}
+			httpSession.setAttribute("products", cart);
+			httpSession.setAttribute("total",cart.size());
+			obj.put("products", cart);
+		}
+
 		return obj.toJSONString();
 	}
 

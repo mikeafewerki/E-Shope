@@ -121,8 +121,8 @@ public class HomeController {
 		if(validUser!=null){
 			httpsession.setAttribute("userId", validUser.getId());
 			httpsession.setAttribute("username", validUser.getUserName());
-			List<Product> products = new ArrayList<Product>();
-			httpsession.setAttribute("products", products);
+			
+			httpsession.setAttribute("products", new ArrayList<Integer>());
 			
 			redirectAttributes.addFlashAttribute("message","Login Successfull");
 		}else{
@@ -140,6 +140,10 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
+	@ModelAttribute("categories")
+	public List<Category> getVersion() {
+	   return categoryDAO.findAll();
+	}
 	
 
 }

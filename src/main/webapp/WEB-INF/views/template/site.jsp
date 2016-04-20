@@ -182,7 +182,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var someText = '${message}';
-			console.log(someText);
+			
 			if (someText != "") {
 				$('#messageModal').modal('show');
 			}

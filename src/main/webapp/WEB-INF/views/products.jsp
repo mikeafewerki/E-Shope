@@ -59,7 +59,7 @@
 									<figure>
 										<a class="aa-product-img" href="#"><img
 											src="${product.getImage().getUrl()}" alt="polo shirt img"></a>
-										<a class="aa-add-card-btn" href="#"><span
+										<a class="aa-add-card-btn" href="javascript:void(0)" onclick="addCart(${product.productId})"><span
 											class="fa fa-shopping-cart"></span>Add To Cart</a>
 										<figcaption>
 											<h4 class="aa-product-title">

@@ -12,9 +12,18 @@
 	<definition name="signup" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/signup.jsp" />
 	</definition>
-		<definition name="products" extends="DefaultTemplate">
+	<definition name="products" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/products.jsp" />
 	</definition>
-	
+
+	<definition name="cart" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/cart.jsp" />
+	</definition>
+	<definition name="billing" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/checkout.jsp" />
+	</definition>
+	<definition name="success" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/thankyou.jsp" />
+	</definition>
 
 </tiles-definitions>
