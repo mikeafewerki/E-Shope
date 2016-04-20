@@ -25,5 +25,8 @@
 	<definition name="success" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/thankyou.jsp" />
 	</definition>
+	<definition name="searchResult" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/searchResult.jsp" />
+	</definition>
 
 </tiles-definitions>
