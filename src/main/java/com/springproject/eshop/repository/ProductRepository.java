@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springproject.eshop.domain.Category;
 import com.springproject.eshop.domain.Product;
 
 @Component
@@ -16,10 +15,6 @@ import com.springproject.eshop.domain.Product;
 public interface ProductRepository extends CrudRepository<Product, Long>{
 
 	List<Product> findByName(String name);
-
 	@Query("from Product p where p.category.categoryId = :id")
 	List<Product> findByCategoryId(@Param("id") long id);
-
-
-	
 }

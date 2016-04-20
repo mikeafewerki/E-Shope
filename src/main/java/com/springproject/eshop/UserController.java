@@ -33,7 +33,6 @@ public class UserController {
 	public String adminAddUser(Model model) {
 		User user = new User();
 		model.addAttribute(user);
-		initModelList(model);
 		model.addAttribute("page","user/add.jsp");
 		return "admin/index";
 	}
@@ -62,17 +61,6 @@ public class UserController {
 		
 		User usr = userDAOImpl.findById(id);
 		usr.setUserName(user.getUserName());
-		usr.setPassword(user.getPassword());
-		usr.setFirstName(user.getFirstName());
-		usr.setLastName(user.getLastName());
-		usr.setEmail(user.getEmail());
-		usr.setPhone(user.getPhone());
-		usr.setStreet(user.getStreet());
-		usr.setZip(user.getZip());
-		usr.setCity(user.getCity());
-		usr.setState(user.getState());
-		usr.setCountry(user.getCountry());
-		usr.setRole(user.getRole());
 		userDAOImpl.update(usr);
 		redirectAttributes.addFlashAttribute("message","User is updated successfully");
 		
@@ -89,7 +77,11 @@ public class UserController {
 		
 		return "redirect:/admin/user";
 	}
-
+//	@RequestMapping(method = RequestMethod.GET)
+//    public String initForm(Model model) {
+//        initModelList(model);
+//        return "role";
+//    }
 	private void initModelList(Model model) {
 //        List<String> rolesList = new ArrayList<String>();
         Role[] rolesList =Role.class.getEnumConstants();
