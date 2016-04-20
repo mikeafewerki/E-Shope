@@ -23,7 +23,7 @@
 				<c:forEach var="product" items="${products}">
 					<tr>
 					<td>${product.name }</td>
-					<td>${product.description }</td>
+					<td><img src="${image[product].getUrl()}" width="50" height="50" /></td>
 					<td><a href="${context}/eshop/admin/image/${product.productId}">view</a></td>
 					<td>${product.price }</td>
 					<td>${product.currQty }</td>

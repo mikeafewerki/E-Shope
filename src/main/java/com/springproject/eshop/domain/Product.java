@@ -38,7 +38,7 @@ public class Product {
 	
 	
 	public Image getImage(){
-		return images.get(0);
+		return getImages().get(0);
 	}
 	
 	public List<Stock> getStock() {
