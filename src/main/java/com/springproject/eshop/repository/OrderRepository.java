@@ -13,5 +13,5 @@ import com.springproject.eshop.domain.Order;
 @Transactional(readOnly = true) 
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-	public List<Order> findByOrderDate(Date date);
+//	public List<Order> findByOrderDate(Date date);
 }

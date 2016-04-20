@@ -10,17 +10,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "orderLine") 
 public class OrderLine {
-
+	
 	@Id @GeneratedValue
 	private long id;
+	
+	public OrderLine()
+	{
+		
+	}
+	public OrderLine(int quantity,  Product product, Order order) {
+		this.quantity = quantity;
+		this.product = product;
+		this.price = product.getPrice();
+		this.subTotal = quantity*this.price ;
+		this.order = order;
+	}
 	private int quantity;
+	private double price;
 	private double subTotal;
-	@OneToMany
+	@OneToOne
 	//@JoinColumn(name="productId")
-	private List<Product> products;
+	private Product product;
 	@ManyToOne
 	private Order order;
 	
@@ -45,17 +60,23 @@ public class OrderLine {
 		this.subTotal = subTotal;
 	}
 	
-	public List<Product> getProducts() {
-		return products;
+	public Product getProduct() {
+		return product;
 	}
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	public Order getOrder() {
 		return order;
 	}
 	public void setOrder(Order order) {
 		this.order = order;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice() {
+		this.price = product.getPrice();
 	}
 	
 	
