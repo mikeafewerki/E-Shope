@@ -19,6 +19,7 @@ public class SiteSetting {
 	private String twitter;
 	private String gPlus;
 	private String youtube;
+	private String phoneNo;
 	public long getSiteId() {
 		return siteId;
 	}
@@ -66,5 +67,11 @@ public class SiteSetting {
 	}
 	public void setYoutube(String youtube) {
 		this.youtube = youtube;
+	}
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
 }

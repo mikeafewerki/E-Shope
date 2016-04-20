@@ -60,4 +60,10 @@ public class ProductDAOImpl implements IProductDAO {
 		return repository.findByCategoryId(categoryId);
 	}
 
+	@Override
+	public List<Product> findByName(String name) {
+		// TODO Auto-generated method stub
+		return repository.findByName(name);
+	}
+
 }

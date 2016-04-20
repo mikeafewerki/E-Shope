@@ -53,6 +53,15 @@
 									Product</a></li>
 
 						</ul></li>
+						<li><a><i class="fa fa-book"></i>Slider <span
+							class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu" style="display: none">
+							<li><a href="${context}/eshop/admin/slider">All
+									Sliders</a></li>
+							<li><a href="${context }/eshop/admin/addSlider">Add
+									Slider</a></li>
+
+						</ul></li>
 					<li><a href="orders"><i class="fa fa-shopping-cart"></i>
 							Orders </a></li>
 				</ul>

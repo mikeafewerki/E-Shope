@@ -70,6 +70,7 @@ public class SiteSettingController {
 		ss.setgPlus(siteSetting.getgPlus());
 		ss.setYoutube(siteSetting.getYoutube());
 		ss.setSiteStatus(siteSetting.getSiteStatus());
+		ss.setPhoneNo(siteSetting.getPhoneNo());
 		siteSettingDAOImpl.update(ss);
 		redirectAttributes.addFlashAttribute("message","Site Setting is updated successfully");
 		

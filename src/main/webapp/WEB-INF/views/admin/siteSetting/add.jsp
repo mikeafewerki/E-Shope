@@ -23,6 +23,8 @@
 		
 		<form:form method="post" modelAttribute="siteSetting" action="${actionUrl}">
 		<div class="form-group">
+			<label class="control-label">Enter Phone No</label> 
+			<form:input path="phoneNo" type="text" /><br/>
 			<label class="control-label">Enter Email</label> 
 			<form:input path="email" type="text" /><br/>
 			<label class="control-label">Enter Address</label> 

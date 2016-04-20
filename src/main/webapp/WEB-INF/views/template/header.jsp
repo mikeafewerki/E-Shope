@@ -34,7 +34,9 @@
 						<!-- start cellphone -->
 						<div class="cellphone hidden-xs">
 							<p>
-								<span class="fa fa-phone"></span>00-62-658-658
+							<c:forEach var="siteSetting" items="${siteSettings}">
+								<span class="fa fa-phone">${siteSetting.phoneNo }</span>
+							</c:forEach>	
 							</p>
 						</div>
 						<!-- / cellphone -->
@@ -111,13 +113,13 @@
 					<!-- / cart box -->
 					<!-- search box -->
 					<div class="aa-search-box">
-						<form action="">
-							<input type="text" name="" id=""
+						<form:form method="post" modelAttribute="searchResult" action="${actionUrl}">
+							<input type="text" name="txtSearch" id="txtSearch"
 								placeholder="Search here ex. 'man' ">
 							<button type="submit">
 								<span class="fa fa-search"></span>
 							</button>
-						</form>
+						</form:form>
 					</div>
 					<!-- / search box -->
 				</div>

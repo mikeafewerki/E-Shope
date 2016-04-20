@@ -77,16 +77,20 @@
                   <div class="aa-footer-widget">
                     <h3>Contact Us</h3>
                     <address>
-                      <p> 25 Astor Pl, NY 10003, USA</p>
-                      <p><span class="fa fa-phone"></span>+1 212-982-4589</p>
-                      <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
+                    <c:forEach var="siteSetting" items="${siteSettings}">
+								<p>${siteSetting.address }</p>
+								
+                      <p><span class="fa fa-phone"></span>${siteSetting.phoneNo }</p>
+                      <p><span class="fa fa-envelope"></span>${siteSetting.email }</p>
                     </address>
                     <div class="aa-footer-social">
-                      <a href="#"><span class="fa fa-facebook"></span></a>
-                      <a href="#"><span class="fa fa-twitter"></span></a>
-                      <a href="#"><span class="fa fa-google-plus"></span></a>
-                      <a href="#"><span class="fa fa-youtube"></span></a>
+                      <a href=${siteSetting.facebook }><span class="fa fa-facebook"></span></a>
+                      <a href=${siteSetting.twitter }><span class="fa fa-twitter"></span></a>
+                      <a href=${siteSetting.gPlus }><span class="fa fa-google-plus"></span></a>
+                      <a href=${siteSetting.youtube }><span class="fa fa-youtube"></span></a>
                     </div>
+							</c:forEach>
+                      
                   </div>
                 </div>
               </div>
