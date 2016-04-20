@@ -13,7 +13,7 @@ import com.springproject.eshop.domain.Product;
 @Component
 @Transactional(readOnly = true) 
 public interface ProductRepository extends CrudRepository<Product, Long>{
-	@Query("from Product p where p.name = :name")
+	@Query("from Product p where p.name like %:name%")
 	List<Product> findByName(@Param("name") String name);
 	@Query("from Product p where p.category.categoryId = :id")
 	List<Product> findByCategoryId(@Param("id") long id);
