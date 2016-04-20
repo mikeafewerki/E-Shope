@@ -10,7 +10,7 @@
 <!-- 	<div class="aa-catg-head-banner-area"> -->
 <!-- 		<div class="container"> -->
 <!-- 			<div class="aa-catg-head-banner-content"> -->
-<h2 class="text-center">${currentCat.name }</h2>
+<h2 class="text-center">Search Result</h2>
 <!-- 				<ol class="breadcrumb"> -->
 <!-- 					<li><a href="index.html">Home</a></li> -->
 <!-- 					<li class="active">Women</li> -->
@@ -59,7 +59,7 @@
 									<figure>
 										<a class="aa-product-img" href="#"><img
 											src="${product.getImage().getUrl()}" alt="polo shirt img"></a>
-										<a class="aa-add-card-btn" href="#"><span
+										<a class="aa-add-card-btn" href="javascript:void(0)" onclick="addCart(${product.productId})"><span
 											class="fa fa-shopping-cart"></span>Add To Cart</a>
 										<figcaption>
 											<h4 class="aa-product-title">

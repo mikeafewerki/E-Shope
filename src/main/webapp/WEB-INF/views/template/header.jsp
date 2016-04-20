@@ -139,8 +139,8 @@
 					<!-- / cart box -->
 					<!-- search box -->
 					<div class="aa-search-box">
-						<form:form method="post" modelAttribute="searchResult"
-							action="${actionUrl}">
+						<form:form method="post" 
+							action="${baseURL}/eshop/searchResult">
 							<input type="text" name="txtSearch" id="txtSearch"
 								placeholder="Search here ex. 'man' ">
 							<button type="submit">

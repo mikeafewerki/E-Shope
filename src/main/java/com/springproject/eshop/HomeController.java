@@ -5,13 +5,16 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,19 +78,20 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String search(@ModelAttribute("searchResult") Product product, Model model,@RequestParam("txtSearch") String txtSearch,
-			final RedirectAttributes redirectAttributes) {
-		model.addAttribute("txtSearch",txtSearch);
-		model.addAttribute("page", "/searchResult.jsp");
-		User user = new User();
-		model.addAttribute("user",user);
-		return "redirect:/searchResult/"+txtSearch;
-	}
+//	@RequestMapping(value = "/", method = RequestMethod.POST)
+//	public String search(@ModelAttribute("searchResult") Product product, Model model,@RequestParam("txtSearch") String txtSearch,
+//			final RedirectAttributes redirectAttributes) {
+//		model.addAttribute("txtSearch",txtSearch);
+//		model.addAttribute("page", "/searchResult.jsp");
+//		User user = new User();
+//		model.addAttribute("user",user);
+//		return "redirect:/searchResult/"+txtSearch;
+//	}
 
-	@RequestMapping(value = "/searchResult/{id}", method = RequestMethod.GET)
-	public String searchResult(@ModelAttribute("searchResult") Product product,Model model, @PathVariable String id) {
-		List<Product> products = productDAOImpl.findByName(id);
+	@RequestMapping(value = "/searchResult", method = RequestMethod.POST)
+	public String searchResult(Model model, HttpServletRequest request) {
+		String name = request.getParameter("txtSearch");
+		List<Product> products = productDAOImpl.findByName(name);
 		model.addAttribute("products",products);
 		User user = new User();
 		model.addAttribute("user",user);
