@@ -1,5 +1,6 @@
 package com.springproject.eshop;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -41,12 +42,13 @@ public class SliderController {
 		return "admin/index";
 	}
 
-	@RequestMapping(value = "admin/saveSlider", method = RequestMethod.POST)
-	public String saveAddSlider(@ModelAttribute Slider slider, Model model, BindingResult result,
-			final RedirectAttributes redirectAttributes) {
-		//System.out.println(category.getName());
-		System.out.println("here");
-//		sliderDAOImpl.create(slider);
+	@RequestMapping(value = "admin/addSlider", method = RequestMethod.POST)
+	public String saveAddSlider(@ModelAttribute("slider") Slider slider, Model model,
+			@RequestParam("file") MultipartFile[] file,
+			final RedirectAttributes redirectAttributes) throws IOException{
+		
+		slider.setImage(file[0].getBytes());
+		sliderDAOImpl.create(slider);
 		model.addAttribute("page", "slider/list.jsp");
 		redirectAttributes.addFlashAttribute("message", "Slider Added Successfully..");
 		return "redirect:/admin/slider";

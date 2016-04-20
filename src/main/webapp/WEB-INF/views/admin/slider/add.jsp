@@ -22,13 +22,19 @@
 				<h3>Update Slider</h3>
 			</c:if>
 
-			<form:form method="post" modelAttribute="slider"
+			<form:form method="post" modelAttribute="slider" enctype="multipart/form-data" 
 				action="${actionUrl}">
 				<div class="form-group">
 					<label class="control-label">Enter Title</label>
-					<form:input path="title" type="text" />
+					<form:input path="title" type="text" /><br/>
 					<label class="control-label">Enter Slider Description</label>
 					<form:input path="description" type="text" />
+				</div>
+				<div class="form-group">
+					<label class="control-label">Image</label>
+					<div class="input_fields_wrap">
+						<input type="file" name="file" accept="image/*" />
+					</div>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-md btn-primary">Submit</button>

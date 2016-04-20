@@ -1,5 +1,7 @@
 package com.springproject.eshop.domain;
 
+import java.util.Base64;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,7 +21,7 @@ public class Slider {
 	private transient CommonsMultipartFile sliderPicture = null;
 	
 	@Lob
-	private Byte[] image;
+	private byte[] image;
 	
 	
 	private String title;
@@ -36,10 +38,10 @@ public class Slider {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Byte[] getImage() {
+	public byte[] getImage() {
 		return image;
 	}
-	public void setImage(Byte[] image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 	public String getTitle() {
@@ -54,4 +56,9 @@ public class Slider {
 	public void setSliderPicture(CommonsMultipartFile sliderPicture) {
 		this.sliderPicture = sliderPicture;
 	}
+	
+	public String getUrl() { 
+		if(this.image != null && this.image.length > 0) 
+			return "data:image/*;base64," + Base64.getEncoder().encodeToString(this.image);
+		return ""; }
 }
