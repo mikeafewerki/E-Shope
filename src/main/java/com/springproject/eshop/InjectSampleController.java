@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springproject.eshop.domain.Order;
 import com.springproject.eshop.domain.OrderLine;
@@ -31,8 +32,10 @@ public class InjectSampleController {
 	@Resource
 	private IOrderLineDAO orderLineDAO;
 	@RequestMapping(value = "/admin/injectData", method = RequestMethod.GET)
-	public String adminOrder(Model model) {
+	public String adminOrder(Model model,final RedirectAttributes redirectAttributes) {
 		injectData();
+		redirectAttributes.addFlashAttribute("message","Data successfully injected");
+		
 		return "redirect:/";
 	}
 
