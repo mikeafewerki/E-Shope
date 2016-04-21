@@ -6,29 +6,31 @@
 
 	<!-- top tiles -->
 	<div class="row tile_count" style="min-height: 700px;">
-		<h1>All Orders</h1>
+		<h1>Order List</h1>
 		<table id="datatable" class="table table-responsive table-bordered datatable">
 			<thead>
 				<tr>
 					<td>Order ID</td>
-					<td>Order Date</td>
-					<td>Total Qty</td>
-					<td>Total Amount</td>
-					<td>Discount</td>
-					<td>Nett Amount</td>
-					<td>User</td>
+					<td>Order Line ID</td>
+					<td>Product ID</td>
+					<td>Product Image</td>
+					<td>Product Name</td>
+					<td>Qty</td>
+					<td>Price</td>
+					<td>Sub Total</td>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="order" items="${orders}">
+				<c:forEach var="orderLine" items="${orderLists}">
 					<tr>
-					<td>${order.orderId }</td>
-					<td>${order.orderDate }</td>
-					<td><a href="${context}/eshop/admin/viewOrder/${order.orderId}">${order.totalQty }</a></td>
-					<td>${order.totalAmount }</td>
-					<td>${order.discount }</td>
-					<td>${order.nettAmount }</td>
-					<td>${order.user.userName }</td>
+					<td>${orderLine.order.orderId }</td>
+					<td>${orderLine.id }</td>
+					<td>${orderLine.product.productId }</td>
+					<td><img src="${image[orderLine.product].getUrl()}" width="50" height="50" /></td>
+					<td>${orderLine.product.name }</td>
+					<td>${orderLine.quantity }</td>
+					<td>${orderLine.price }</td>
+					<td>${orderLine.subTotal }</td>
 					</tr>
 				</c:forEach>
 
