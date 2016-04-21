@@ -26,14 +26,14 @@
 				action="${actionUrl}">
 				<div class="form-group">
 					<label class="control-label">Enter Title</label>
-					<form:input path="title" type="text" /><br/>
+					<form:input path="title" type="text" class="form-control" /><br/>
 					<label class="control-label">Enter Slider Description</label>
-					<form:input path="description" type="text" />
+					<form:input path="description" type="text"  class="form-control"/>
 				</div>
 				<div class="form-group">
 					<label class="control-label">Image</label>
 					<div class="input_fields_wrap">
-						<input type="file" name="file" accept="image/*" />
+						<input type="file" name="file" accept="image/*" class="form-control" />
 					</div>
 				</div>
 				<div class="form-group">

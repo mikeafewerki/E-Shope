@@ -26,9 +26,9 @@
 				action="${actionUrl}">
 				<div class="form-group">
 					<label class="control-label">Enter Amount</label>
-					<form:input path="amount" type="text" /><br/>
+					<form:input path="amount" type="text" class="form-control"/><br/>
 					<label class="control-label">Remarks</label>
-					<form:input path="remarks" type="text" /><br/>
+					<form:input path="remarks" type="text" class="form-control"/><br/>
 					<label class="control-label">Voucher Used</label>
 					<input  type="checkbox" name="flag"  />
 				</div>

@@ -7,7 +7,7 @@
 	<!-- top tiles -->
 	<div class="row tile_count" style="min-height: 700px;">
 		<h1>All Slider</h1>
-		<table class="table table-responsive table-bordered">
+		<table class="table table-responsive table-bordered datatable">
 			<thead>
 				<tr>
 					<td>Image</td>

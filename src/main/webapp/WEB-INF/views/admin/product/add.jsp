@@ -21,7 +21,7 @@
 												x++; //text box increment
 												$(wrapper)
 														.append(
-																'<div><input type="file" name="file" accept="image/*" /><a href="#" class="remove_field">Remove</a></div>'); //add input box
+																'<div><input type="file" name="file" class="form-control" accept="image/*" /><a href="#" class="remove_field btn btn-danger">Remove</a></div>'); //add input box
 											}
 										});
 
@@ -52,10 +52,10 @@
 				<h3>Update Product</h3>
 			</c:if>
 
-			<form:form method="post" modelAttribute="product" enctype="multipart/form-data" 
-				action="${actionUrl}">
+			<form:form method="post" modelAttribute="product"
+				enctype="multipart/form-data" action="${actionUrl}">
 				<div class="form-group">
-					<label class="control-label">Category</label> <select name="cat">
+					<label class="control-label">Category</label> <select name="cat" class="form-control col-md-12">
 						<c:if test="${empty product.name}">
 							<option value="" />
 						</c:if>
@@ -74,11 +74,11 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label">Name</label>
-					<form:input path="name" type="text" />
+					<form:input path="name" class="form-control" type="text" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">Description</label>
-					<form:textarea path="description" rows="5" cols="30" />
+					<form:textarea path="description" class="form-control" rows="5" cols="30" />
 				</div>
 				<!-- 				<div class="form-group"> -->
 				<!-- 					<label class="control-label">Image</label> -->
@@ -87,7 +87,7 @@
 				<div class="form-group">
 					<label class="control-label">Image</label>
 					<div class="input_fields_wrap">
-						<input type="file" name="file" accept="image/*" />
+						<input type="file" class="form-control" name="file" accept="image/*" />
 					</div>
 				</div>
 				<div>
@@ -96,11 +96,11 @@
 
 				<div class="form-group">
 					<label class="control-label">Unit Price</label>
-					<form:input path="price" type="text" />
+					<form:input class="form-control" path="price" type="text" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">Quantity</label>
-					<form:input path="currQty" type="text" />
+					<form:input class="form-control" path="currQty" type="text" />
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-md btn-primary">Submit</button>
