@@ -56,9 +56,9 @@
 								} else {
 							%>
 							<li><a href="account.html">My Account</a></li>
-							<li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
-							<li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-							<li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+<!-- 							<li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li> -->
+							<li class="hidden-xs"><a href="${baseURL }/eshop/showCart">My Cart</a></li>
+<!-- 							<li class="hidden-xs"><a href="checkout.html">Checkout</a></li> -->
 							<li><a href="${baseURL }/eshop/logout">Logout</a></li>
 							<%
 								}

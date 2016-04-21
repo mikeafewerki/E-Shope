@@ -149,5 +149,10 @@ public class HomeController {
 	   return categoryDAO.findAll();
 	}
 	
+	@ModelAttribute("user")
+	public User getUser() {
+	   return new User();
+	}
+	
 
 }
