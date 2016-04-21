@@ -174,7 +174,7 @@
 				<div class="navbar-collapse collapse">
 					<!-- Left nav -->
 					<ul class="nav navbar-nav">
-						<li><a href="/">Home</a></li>
+						<li><a href="${baseURL }/eshop/">Home</a></li>
 						<c:forEach var="category" items="${categories}">
 							<li><a href="/eshop/category/${category.categoryId }">${category.name }</a></li>
 						</c:forEach>

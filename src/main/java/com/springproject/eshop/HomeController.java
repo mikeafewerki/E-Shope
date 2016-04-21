@@ -48,6 +48,10 @@ public class HomeController {
 	private IProductDAO productDAOImpl;
 	@Resource
 	private ISiteSettingDAO siteSettingDAOImpl;
+	
+	@Resource
+
+	
 	@Autowired
 	private HttpSession httpsession;
 	
@@ -73,6 +77,8 @@ public class HomeController {
 		User user = new User();
 		model.addAttribute("user",user);
 		
+		List<Product> products = productDAOImpl.findAll();
+		model.addAttribute("products",products);
 		return "home";
 	}
 	
