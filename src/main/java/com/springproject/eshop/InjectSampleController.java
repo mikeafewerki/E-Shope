@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.springproject.eshop.domain.Category;
 import com.springproject.eshop.domain.Order;
 import com.springproject.eshop.domain.OrderLine;
 import com.springproject.eshop.domain.Product;
@@ -37,6 +38,15 @@ public class InjectSampleController {
 		redirectAttributes.addFlashAttribute("message","Data successfully injected");
 		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/admin/order", method = RequestMethod.GET)
+	public String adminCategory(Model model) {
+		List<Order> orders = orderDAO.findAll();
+
+		model.addAttribute("orders", orders);
+		model.addAttribute("page", "order/list.jsp");
+		return "admin/index";
 	}
 
 	public void injectData(){
