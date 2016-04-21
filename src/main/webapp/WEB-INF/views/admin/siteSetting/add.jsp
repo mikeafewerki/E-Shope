@@ -24,19 +24,19 @@
 		<form:form method="post" modelAttribute="siteSetting" action="${actionUrl}">
 		<div class="form-group">
 			<label class="control-label">Enter Phone No</label> 
-			<form:input path="phoneNo" type="text" /><br/>
+			<form:input path="phoneNo" type="text" class="form-control"/><br/>
 			<label class="control-label">Enter Email</label> 
-			<form:input path="email" type="text" /><br/>
+			<form:input path="email" type="text" class="form-control"/><br/>
 			<label class="control-label">Enter Address</label> 
-			<form:input path="address" type="text" /><br/>
+			<form:input path="address" type="text" class="form-control"/><br/>
 			<label class="control-label">Enter Facebook</label> 
-			<form:input path="facebook" type="text" /><br/>
+			<form:input path="facebook" type="text" class="form-control"/><br/>
 			<label class="control-label">Enter Twitter</label> 
-			<form:input path="twitter" type="text" /><br/>
+			<form:input path="twitter" type="text" class="form-control" /><br/>
 			<label class="control-label">Enter Google +</label> 
-			<form:input path="gPlus" type="text" /><br/>
+			<form:input path="gPlus" type="text" class="form-control"/><br/>
 			<label class="control-label">Enter Youtube</label> 
-			<form:input path="youtube" type="text" /><br/>
+			<form:input path="youtube" type="text" class="form-control"/><br/>
 			<label class="control-label">Enter Status</label> 
 			<form:select path="siteStatus">
 				<form:option value="" label="...." />

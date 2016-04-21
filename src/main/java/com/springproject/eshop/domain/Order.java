@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +45,7 @@ public class Order {
 	private User user;
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy="order",fetch=FetchType.EAGER)
 	private List<OrderLine> orderLines;
 	
 	public long getOrderId() {
@@ -121,6 +122,12 @@ public class Order {
 	}
 	public void setNettAmount(double nettAmount) {
 		this.nettAmount = nettAmount;
+	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", totalQty=" + totalQty + ", totalAmount="
+				+ totalAmount + ", discount=" + discount + ", nettAmount=" + nettAmount + ", user=" + user + ", status="
+				+ status + ", orderLines=" + orderLines + "]";
 	}
 	
 	

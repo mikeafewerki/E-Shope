@@ -12,7 +12,7 @@ import com.springproject.eshop.repository.OrderRepository;
 import com.springproject.eshop.service.IOrderDAO;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 public class OrderDAOImpl implements IOrderDAO {
 
 	@Inject

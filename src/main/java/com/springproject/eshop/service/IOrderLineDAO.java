@@ -12,4 +12,5 @@ public interface IOrderLineDAO {
 	public void delete(OrderLine orderLine);
 	public void create(OrderLine orderLine);
 	public void update(OrderLine orderLine);
+	public List<OrderLine> findByOrderId(long orderId);
 }

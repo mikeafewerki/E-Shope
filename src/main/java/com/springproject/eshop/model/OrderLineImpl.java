@@ -12,7 +12,7 @@ import com.springproject.eshop.repository.OrderLineRepository;
 import com.springproject.eshop.service.IOrderLineDAO;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 public class OrderLineImpl implements IOrderLineDAO{
 
 	@Inject
@@ -52,6 +52,12 @@ public class OrderLineImpl implements IOrderLineDAO{
 	public void update(OrderLine orderLine) {
 		// TODO Auto-generated method stub
 		repository.save(orderLine);
+	}
+
+	@Override
+	public List<OrderLine> findByOrderId(long orderId) {
+		// TODO Auto-generated method stub
+		return repository.findByOrderId(orderId);
 	}
 
 }
