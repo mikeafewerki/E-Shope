@@ -242,6 +242,14 @@
 		<!-- <artifactId>jackson-databind</artifactId> -->
 		<!-- <version>2.5.0</version> -->
 		<!-- </dependency> -->
+
+		<!-- validation -->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.1.2.Final</version>
+		</dependency>
 	</dependencies>
 
 

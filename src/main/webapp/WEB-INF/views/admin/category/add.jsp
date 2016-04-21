@@ -27,6 +27,7 @@
 				<div class="form-group">
 					<label class="control-label">Enter Category Name</label>
 					<form:input path="name" class="form-control" type="text" />
+					<form:errors cssStyle="color:red;" path="name" />
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-md btn-primary">Submit</button>
