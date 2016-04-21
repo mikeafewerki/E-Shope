@@ -1,23 +1,26 @@
 package com.springproject.eshop;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.springproject.eshop.domain.Category;
+import com.springproject.eshop.domain.Image;
 import com.springproject.eshop.domain.Order;
 import com.springproject.eshop.domain.OrderLine;
 import com.springproject.eshop.domain.Product;
 import com.springproject.eshop.domain.Status;
 import com.springproject.eshop.domain.User;
+import com.springproject.eshop.service.IImageDAO;
 import com.springproject.eshop.service.IOrderDAO;
 import com.springproject.eshop.service.IOrderLineDAO;
 import com.springproject.eshop.service.IProductDAO;
@@ -30,6 +33,8 @@ public class InjectSampleController {
 	private IProductDAO productDAO;
 	@Resource
 	private IOrderDAO orderDAO;
+	@Resource
+	private IImageDAO imageDAO;
 	@Resource
 	private IOrderLineDAO orderLineDAO;
 	@RequestMapping(value = "/admin/injectData", method = RequestMethod.GET)
@@ -48,7 +53,20 @@ public class InjectSampleController {
 		model.addAttribute("page", "order/list.jsp");
 		return "admin/index";
 	}
+	@RequestMapping(value = "/admin/viewOrder/{id}", method = RequestMethod.GET)
+	public String viewOrders(Model model, @PathVariable long id) {
 
+		List<OrderLine> orderLists = orderLineDAO.findByOrderId(id);
+		Map<Product,Image> images = new HashMap<Product,Image>();
+		for(OrderLine ol : orderLists)
+			images.put(ol.getProduct(), imageDAO.findByProduct(ol.getProduct().getProductId()).get(0));
+
+		model.addAttribute("image",images);
+		
+		model.addAttribute("orderLists", orderLists);
+		model.addAttribute("page", "order/orderLineList.jsp");
+		return "admin/index";
+	}
 	public void injectData(){
 		User usr1 = userDAO.findById(37);
 		

@@ -54,4 +54,10 @@ public class OrderLineImpl implements IOrderLineDAO{
 		repository.save(orderLine);
 	}
 
+	@Override
+	public List<OrderLine> findByOrderId(long orderId) {
+		// TODO Auto-generated method stub
+		return repository.findByOrderId(orderId);
+	}
+
 }
