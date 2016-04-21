@@ -28,6 +28,7 @@ import com.springproject.eshop.service.ICategoryDAO;
  * Handles requests for the application home page.
  */
 @RestController
+@SuppressWarnings("unchecked")
 public class AjaxController {
 	@Resource
 	private ICategoryDAO categoryDAO;

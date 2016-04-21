@@ -40,6 +40,7 @@ import com.springproject.eshop.service.IUserDAO;
  * Handles requests for the application home page.
  */
 @Controller
+@SuppressWarnings("unchecked")
 public class CartController {
 	@Resource
 	private ICategoryDAO categoryDAO;
