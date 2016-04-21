@@ -10,7 +10,7 @@
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 
 		<!-- access denied page -->
-		<access-denied-handler error-page="/403" />
+<!-- 		<access-denied-handler error-page="/403" /> -->
 		<form-login login-page="/loginAdmin" default-target-url="/admin"
 			authentication-failure-url="/loginAdmin?error" username-parameter="username"
 			password-parameter="password" />

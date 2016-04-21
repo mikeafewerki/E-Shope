@@ -53,25 +53,24 @@
 									Product</a></li>
 
 						</ul></li>
-						<li><a><i class="fa fa-book"></i>Slider <span
+					<li><a><i class="fa fa-book"></i>Slider <span
 							class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="${context}/eshop/admin/slider">All
-									Sliders</a></li>
+							<li><a href="${context}/eshop/admin/slider">All Sliders</a></li>
 							<li><a href="${context }/eshop/admin/addSlider">Add
 									Slider</a></li>
 
 						</ul></li>
-						<li><a><i class="fa fa-book"></i>Inject Order Data <span
+					<li><a><i class="fa fa-book"></i>Inject Order Data <span
 							class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="${context}/eshop/admin/injectData">Inject Order Data</a></li>
+							<li><a href="${context}/eshop/admin/injectData">Inject
+									Order Data</a></li>
 						</ul></li>
-						<li><a><i class="fa fa-book"></i>Coupon <span
+					<li><a><i class="fa fa-book"></i>Coupon <span
 							class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu" style="display: none">
-							<li><a href="${context}/eshop/admin/coupon">All
-									Coupons</a></li>
+							<li><a href="${context}/eshop/admin/coupon">All Coupons</a></li>
 							<li><a href="${context }/eshop/admin/addCoupon">Add
 									Coupon</a></li>
 
@@ -116,6 +115,8 @@
 						<li><a href="javascript:void(0);" onclick="logout()"><i
 								class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 					</ul></li>
+				<%@ taglib prefix="form"
+					uri="http://www.springframework.org/tags/form"%>
 				<c:url value="/j_spring_security_logout" var="logoutUrl" />
 				<form action="${logoutUrl}" method="post" id="logoutForm">
 					<input type="hidden" name="${_csrf.parameterName}"
@@ -123,7 +124,7 @@
 				</form>
 				<script>
 					function logout() {
-// 						alert("click");
+						// 						alert("click");
 						document.getElementById("logoutForm").submit();
 					}
 				</script>
