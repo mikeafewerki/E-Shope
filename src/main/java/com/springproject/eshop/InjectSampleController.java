@@ -40,7 +40,7 @@ public class InjectSampleController {
 	}
 
 	public void injectData(){
-		User usr1 = userDAO.findById(1011);
+		User usr1 = userDAO.findById(37);
 		
 		Product prod1 = productDAO.findById(1031);
 		Product prod2 =  productDAO.findById(1034);

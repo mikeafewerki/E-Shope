@@ -45,7 +45,7 @@ public class SliderController {
 	@RequestMapping(value = "admin/addSlider", method = RequestMethod.POST)
 	public String saveAddSlider(@ModelAttribute("slider") Slider slider, Model model,
 			@RequestParam("file") MultipartFile[] file,
-			final RedirectAttributes redirectAttributes) throws IOException{
+			final RedirectAttributes redirectAttributes,BindingResult result) throws IOException{
 		
 		slider.setImage(file[0].getBytes());
 		sliderDAOImpl.create(slider);
