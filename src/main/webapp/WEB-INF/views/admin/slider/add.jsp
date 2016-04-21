@@ -23,7 +23,7 @@
 			</c:if>
 
 			<form:form method="post" modelAttribute="slider" enctype="multipart/form-data" 
-				action="${actionUrl}">
+				action="${actionUrl}?${_csrf.parameterName}=${_csrf.token}">
 				<div class="form-group">
 					<label class="control-label">Enter Title</label>
 					<form:input path="title" type="text" class="form-control" /><br/>

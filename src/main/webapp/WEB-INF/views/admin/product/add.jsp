@@ -53,7 +53,7 @@
 			</c:if>
 
 			<form:form method="post" modelAttribute="product"
-				enctype="multipart/form-data" action="${actionUrl}">
+				enctype="multipart/form-data" action="${actionUrl}?${_csrf.parameterName}=${_csrf.token}">
 				<div class="form-group">
 					<label class="control-label">Category</label> <select name="cat" class="form-control col-md-12">
 						<c:if test="${empty product.name}">
