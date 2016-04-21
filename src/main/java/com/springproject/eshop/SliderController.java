@@ -27,9 +27,9 @@ public class SliderController {
 	
 	@RequestMapping(value = "/admin/slider", method = RequestMethod.GET)
 	public String adminSlider(Model model) {
-		List<Slider> categories= sliderDAOImpl.findAll();
+		List<Slider> sliders= sliderDAOImpl.findAll();
 		
-		model.addAttribute("sliders",categories);
+		model.addAttribute("sliders",sliders);
 		model.addAttribute("page", "slider/list.jsp");
 		return "admin/index";
 	}

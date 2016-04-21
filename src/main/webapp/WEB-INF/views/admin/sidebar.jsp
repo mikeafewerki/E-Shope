@@ -62,6 +62,20 @@
 									Slider</a></li>
 
 						</ul></li>
+						<li><a><i class="fa fa-book"></i>Inject Order Data <span
+							class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu" style="display: none">
+							<li><a href="${context}/eshop/admin/injectData">Inject Order Data</a></li>
+						</ul></li>
+						<li><a><i class="fa fa-book"></i>Coupon <span
+							class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu" style="display: none">
+							<li><a href="${context}/eshop/admin/coupon">All
+									Coupons</a></li>
+							<li><a href="${context }/eshop/admin/addCoupon">Add
+									Coupon</a></li>
+
+						</ul></li>
 					<li><a href="orders"><i class="fa fa-shopping-cart"></i>
 							Orders </a></li>
 				</ul>
