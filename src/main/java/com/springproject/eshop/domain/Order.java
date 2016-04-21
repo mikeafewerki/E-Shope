@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +45,7 @@ public class Order {
 	private User user;
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy="order",fetch=FetchType.EAGER)
 	private List<OrderLine> orderLines;
 	
 	public long getOrderId() {
