@@ -7,15 +7,18 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springproject.eshop.domain.Category;
@@ -61,31 +64,43 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/admin/addProduct", method = RequestMethod.POST)
-	public String saveAddProduct(@ModelAttribute("product") Product product, Model model,
+	public ModelAndView saveAddProduct(@Valid Product product, BindingResult result,
 			@RequestParam("file") MultipartFile[] file, @RequestParam("cat") Long catId,
 			final RedirectAttributes redirectAttributes) throws IOException {
 
-		List<Image> images = new ArrayList<Image>();
-		for(int i=0;i<file.length;i++){
-			Image img = new Image();
-			img.setImage(file[i].getBytes());
-			img.setProduct(product);
-			product.addImage(img);
-			images.add(img);
-			//imageDao.create(img);
+		ModelAndView model = new ModelAndView();
+		
+		if (!result.hasErrors()) {
+			List<Image> images = new ArrayList<Image>();
+			for(int i=0;i<file.length;i++){
+				Image img = new Image();
+				img.setImage(file[i].getBytes());
+				img.setProduct(product);
+				product.addImage(img);
+				images.add(img);
+				//imageDao.create(img);
+			}
+			
+			Category proCat = categorytDao.findById(catId);
+			product.setCategory(proCat);
+			productDao.create(product);
+			
+			for(Image image : images){
+				imageDao.create(image);
+			}
+			
+			model.addObject("page", "product/list.jsp");
+			model.setViewName("redirect:/admin/product");;
+			redirectAttributes.addFlashAttribute("message", "Product Added Successfully..");
+		}
+		else{
+			List<Category> categories = categorytDao.findAll();
+			model.addObject("categories", categories);
+			model.addObject("page", "product/add.jsp");
+			model.setViewName("admin/index");
 		}
 		
-		Category proCat = categorytDao.findById(catId);
-		product.setCategory(proCat);
-		productDao.create(product);
-		
-		for(Image image : images){
-			imageDao.create(image);
-		}
-		
-		model.addAttribute("page", "product/list.jsp");
-		redirectAttributes.addFlashAttribute("message", "Product Added Successfully..");
-		return "redirect:/admin/product";
+		return model;
 	}
 
 	@RequestMapping(value = "/admin/editProduct/{id}", method = RequestMethod.GET)

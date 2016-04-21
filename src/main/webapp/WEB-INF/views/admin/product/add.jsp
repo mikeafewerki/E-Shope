@@ -75,15 +75,13 @@
 				<div class="form-group">
 					<label class="control-label">Name</label>
 					<form:input path="name" class="form-control" type="text" />
+					<form:errors cssStyle="color:red;" path="name" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">Description</label>
 					<form:textarea path="description" class="form-control" rows="5" cols="30" />
+					<form:errors cssStyle="color:red;" path="description" />
 				</div>
-				<!-- 				<div class="form-group"> -->
-				<!-- 					<label class="control-label">Image</label> -->
-				<!-- 					<input type="file" name="file[]" id="file"></input> -->
-				<!-- 				</div> -->
 				<div class="form-group">
 					<label class="control-label">Image</label>
 					<div class="input_fields_wrap">
@@ -97,10 +95,12 @@
 				<div class="form-group">
 					<label class="control-label">Unit Price</label>
 					<form:input class="form-control" path="price" type="text" />
+					<form:errors cssStyle="color:red;" path="price" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">Quantity</label>
 					<form:input class="form-control" path="currQty" type="text" />
+					<form:errors cssStyle="color:red;" path="currQty" />
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-md btn-primary">Submit</button>

@@ -27,8 +27,10 @@
 				<div class="form-group">
 					<label class="control-label">Enter Title</label>
 					<form:input path="title" type="text" class="form-control" /><br/>
+					<form:errors cssStyle="color:red;" path="title" />
 					<label class="control-label">Enter Slider Description</label>
 					<form:input path="description" type="text"  class="form-control"/>
+					<form:errors cssStyle="color:red;" path="description" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">Image</label>

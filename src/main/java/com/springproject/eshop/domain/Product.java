@@ -13,17 +13,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Product {
 	@Id
 	@GeneratedValue
 	private long productId;
+	@NotEmpty
 	private String name;
+	@NotEmpty
 	private String description;
+	@Min(0)
 	private double price;
+	@Min(1)
 	private int currQty;
 	
 	@OneToMany(mappedBy="product", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
@@ -41,6 +47,7 @@ public class Product {
 	
 	
 	public Image getImage(){
+		
 		return getImages().get(0);
 	}
 	

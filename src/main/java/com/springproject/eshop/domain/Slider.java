@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 @Entity
@@ -15,7 +15,7 @@ public class Slider {
 	@Id
 	@GeneratedValue
 	private long sliderId;
-	
+	@NotEmpty
 	private String description;
 	
 	private transient CommonsMultipartFile sliderPicture = null;
@@ -23,7 +23,7 @@ public class Slider {
 	@Lob
 	private byte[] image;
 	
-	
+	@NotEmpty
 	private String title;
 	
 	public long getSliderId() {

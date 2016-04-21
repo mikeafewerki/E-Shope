@@ -55,7 +55,6 @@ public class CategoryController {
 			redirectAttributes.addFlashAttribute("message", "Category Added Successfully..");
 
 		} else {
-			
 			model.addObject("page", "category/add.jsp");
 			model.setViewName("admin/index");
 		}

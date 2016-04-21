@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springproject.eshop.domain.Slider;
@@ -43,15 +44,23 @@ public class SliderController {
 	}
 
 	@RequestMapping(value = "admin/addSlider", method = RequestMethod.POST)
-	public String saveAddSlider(@ModelAttribute("slider") Slider slider, Model model,
-			@RequestParam("file") MultipartFile[] file,
+	public ModelAndView saveAddSlider(@Valid Slider slider, @RequestParam("file") MultipartFile[] file,
 			final RedirectAttributes redirectAttributes,BindingResult result) throws IOException{
+		ModelAndView model = new ModelAndView();
 		
-		slider.setImage(file[0].getBytes());
-		sliderDAOImpl.create(slider);
-		model.addAttribute("page", "slider/list.jsp");
-		redirectAttributes.addFlashAttribute("message", "Slider Added Successfully..");
-		return "redirect:/admin/slider";
+		if(!result.hasErrors()){
+			slider.setImage(file[0].getBytes());
+			sliderDAOImpl.create(slider);
+			model.addObject("page", "slider/list.jsp");
+			redirectAttributes.addFlashAttribute("message", "Slider Added Successfully..");
+			model.setViewName("redirect:/admin/slider");
+		}
+		else{
+			model.addObject("page", "slider/add.jsp");
+			model.setViewName("admin/index");
+		}
+		
+		return model;
 	}
 	
 	@RequestMapping(value = "/admin/editSlider/{id}", method = RequestMethod.GET)
