@@ -123,6 +123,12 @@ public class Order {
 	public void setNettAmount(double nettAmount) {
 		this.nettAmount = nettAmount;
 	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", totalQty=" + totalQty + ", totalAmount="
+				+ totalAmount + ", discount=" + discount + ", nettAmount=" + nettAmount + ", user=" + user + ", status="
+				+ status + ", orderLines=" + orderLines + "]";
+	}
 	
 	
 }

@@ -50,10 +50,10 @@ public class CartController {
 
 	@Resource
 	private IUserDAO userDAO;
-	
+
 	@Resource
 	private IOrderDAO orderDAO;
-	
+
 	@Resource
 	private IOrderLineDAO orderlineDAO;
 
@@ -113,28 +113,32 @@ public class CartController {
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
 	public String checkOut(Model model) {
 		User usr1 = userDAO.findById((Long) httpsession.getAttribute("userId"));
-		Order ord1 = new Order(new Date(),0,usr1,Status.PENDING);
+		Order ord1 = new Order(new Date(), 0, usr1, Status.PENDING);
 		List<OrderLine> orderLines = new ArrayList<OrderLine>();
-		
+
 		List<Long> cart = (List<Long>) httpsession.getAttribute("products");
 		List<String> quantities = (List<String>) httpsession.getAttribute("quantity");
-		
-		for(int i=0; i<cart.size();i++){
-			orderLines.add(new OrderLine(Integer.parseInt(quantities.get(i)),productDAO.findById(cart.get(i)),ord1));
+
+		for (int i = 0; i < cart.size(); i++) {
+			orderLines.add(new OrderLine(Integer.parseInt(quantities.get(i)), productDAO.findById(cart.get(i)), ord1));
 		}
-		for(OrderLine ord:orderLines){
+		for (OrderLine ord : orderLines) {
 			ord1.addOrderLines(ord);
 		}
 		
 		orderDAO.create(ord1);
-		for(OrderLine ord:orderLines){
+		System.out.println(ord1.toString());
+		for (OrderLine ord : orderLines) {
 			orderlineDAO.create(ord);
 		}
-		
-		
 
 		User user = new User();
 		model.addAttribute("user", user);
+		httpsession.removeAttribute("products");
+		httpsession.removeAttribute("total");
+		httpsession.removeAttribute("quantity");
+		httpsession.setAttribute("products", new ArrayList<Integer>());
+		httpsession.setAttribute("quantity", new ArrayList<String>());
 		return "success";
 	}
 

@@ -24,7 +24,7 @@
 					<tr>
 					<td>${order.orderId }</td>
 					<td>${order.orderDate }</td>
-					<td><a href="${context}/eshop/admin/viewOrder/${order.orderId}">${order.totalQty }</a></td>
+					<td><a href="${context}/eshop/admin/viewOrder/${order.orderId}">${order.totalQty } (View)</a></td>
 					<td>${order.totalAmount }</td>
 					<td>${order.discount }</td>
 					<td>${order.nettAmount }</td>
