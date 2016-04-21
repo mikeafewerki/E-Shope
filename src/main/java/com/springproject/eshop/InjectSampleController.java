@@ -42,11 +42,11 @@ public class InjectSampleController {
 	public void injectData(){
 		User usr1 = userDAO.findById(37);
 		
-		Product prod1 = productDAO.findById(1031);
-		Product prod2 =  productDAO.findById(1034);
-		Product prod3 =  productDAO.findById(1036);
-		Product prod4 =  productDAO.findById(1038);
-		Product prod5 =  productDAO.findById(1040);
+		Product prod1 = productDAO.findById(40);
+		Product prod2 =  productDAO.findById(43);
+		Product prod3 =  productDAO.findById(46);
+		Product prod4 =  productDAO.findById(53);
+		Product prod5 =  productDAO.findById(55);
 
 		Order ord1 = new Order(new Date(),0,usr1,Status.PENDING);
 

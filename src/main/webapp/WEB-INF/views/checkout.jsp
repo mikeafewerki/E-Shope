@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="checkout-area">
-					<form action="checkout" method="POST" validate="noValidate">
+					<form action="checkout?${_csrf.parameterName}=${_csrf.token}" method="POST" validate="noValidate">
 						<div class="row">
 							<div class="col-md-8">
 								<div class="checkout-left">
@@ -26,8 +26,8 @@
 											<div id="collapseOne" class="panel-collapse collapse in">
 												<div class="panel-body">
 													<input type="text" placeholder="Coupon Code"
-														class="aa-coupon-code"> <input type="submit"
-														value="Apply Coupon" class="aa-browse-btn">
+														class="aa-coupon-code">
+														 <a href="javascript:void(0);" onclick="appyDiscount()" class="aa-browse-btn">Submit</a>
 												</div>
 											</div>
 										</div>

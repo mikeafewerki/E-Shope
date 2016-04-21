@@ -11,7 +11,7 @@
 			<div class="col-md-12">
 				<div class="cart-view-area">
 					<div class="cart-view-table">
-						<form action="processCart" id="cartForm" method="POST">
+						<form action="processCart?${_csrf.parameterName}=${_csrf.token}" id="cartForm" method="POST">
 							<div class="table-responsive">
 								<table class="table">
 									<thead>
